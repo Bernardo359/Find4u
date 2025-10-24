@@ -209,12 +209,6 @@
             $auth->add($eliminarUtilizador);
             echo("Permissao '$eliminarUtilizador' criada com sucesso");
 
-            //Editar Anúncio
-            $editarAnuncio = $auth->createPermission('editarAnuncio');
-            $editarAnuncio->description = "Editar Anuncio";
-            $auth->add($editarAnuncio);
-            echo("Permissao '$editarAnuncio' criada com sucesso");
-
             //Eliminar Anúncio
             $eliminarAnuncio = $auth->createPermission('eliminarAnuncio');
             $eliminarAnuncio->description = "Eliminar Anuncio";
@@ -276,16 +270,13 @@
 
             //admin
             $auth->addChild($admin, $criarUtilizador);
-            $auth->addChild($gestor, $editarUtilizador);
-            $auth->addChild($gestor, $eliminarUtilizador);
-            $auth->addChild($gestor, $editarAnuncio);
-            $auth->addChild($gestor, $eliminarAnuncio);
+            $auth->addChild($admin, $editarUtilizador);
+            $auth->addChild($admin, $eliminarUtilizador);
+            $auth->addChild($admin, $eliminarAnuncio);
 
 
-            //Relacionados 
+            //Relacionados
             //O ADMIN NÃO DEVE TER PERMISSÃO PARA TUDO. O ADMIN É UM GESTOR MASTER.
-            $auth->addChild($admin, $comprador); //????? admin tem todas as permissões de comprador. ?????
-            $auth->addChild($admin, $anunciante); //????? admin tem todas as permissões de anunciante. ????
             $auth->addChild($anunciante, $comprador); //Anunciante tem todas as permissões de comprador.
             $auth->addChild($admin, $gestor); //Admin tem todas as permissões que o gestor tem
         }
