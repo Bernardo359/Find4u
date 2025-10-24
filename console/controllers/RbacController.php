@@ -200,7 +200,8 @@
             $auth->addChild($anunciante, $verDetalhesLeilao);
 
 
-            //Relacionados
+            //Relacionados 
+            //O ADMIN NÃO DEVE TER PERMISSÃO PARA TUDO. O ADMIN É UM GESTOR MASTER.
             $auth->addChild($admin, $comprador); //admin tem todas as permissões de comprador.
             $auth->addChild($admin, $anunciante); //admin tem todas as permissões de anunciante.
             $auth->addChild($anunciante, $comprador); //Anunciante tem todas as permissões de comprador.
