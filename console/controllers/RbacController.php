@@ -38,37 +38,37 @@
             //======PERMISSOES BACKFRONT======
             //Acesso a Dashboard
             $acessoDashboard = $auth->createPermission('acessoDashboard');
-            $acessoDashboard->$description = "Acesso a dashboard da pagina para anunciante";
+            $acessoDashboard->description = "Acesso a dashboard da pagina para anunciante";
             $auth->add($acessoDashboard);
             echo("Permissao '$acessoDashboard' criada com sucesso");
 
             //Visualizar imoveis publicados
             $visualizarImoveisPublicados = $auth->createPermission('visualizarImoveisPublicados');
-            $visualizarImoveisPublicados->$description = "Visualizar Imoveis Publicados do respetivo user";
+            $visualizarImoveisPublicados->description = "Visualizar Imoveis Publicados do respetivo user";
             $auth->add($visualizarImoveisPublicados);
             echo("Permissao '$visualizarImoveisPublicados' criada com sucesso");
 
             //Visualizar Comentarios de cada anuncio
             $visualizarComentariosAnuncio = $auth->createPermission('visualizarComentariosAnuncio');
-            $visualizarComentariosAnuncio->$description = "VIsualizar comentarios de cada anuncio do respetivo user";
+            $visualizarComentariosAnuncio->description = "VIsualizar comentarios de cada anuncio do respetivo user";
             $auth->add($visualizarComentariosAnuncio);
             echo("Permissao '$visualizarComentariosAnuncio' criada com sucesso");
 
             //Visualizar Review de cada Anuncio
             $visualizarReviewAnuncio = $auth->createPermission('visualizarReviewAnuncio');
-            $visualizarReviewAnuncio->$description = "VIsualizar review de cada anuncio do respetivo user";
+            $visualizarReviewAnuncio->description = "VIsualizar review de cada anuncio do respetivo user";
             $auth->add($visualizarReviewAnuncio);
             echo("Permissao '$visualizarReviewAnuncio' criada com sucesso");
 
             //Agendar Visita
             $agendarVisita = $auth->createPermission('agendarVisita');
-            $agendarVisita->$description = "Agendar visitas para o anuncio publicado";
+            $agendarVisita->description = "Agendar visitas para o anuncio publicado";
             $auth->add($agendarVisita);
             echo("Permissao '$agendarVisita' criada com sucesso");
             
             //Visualizar Leads
             $visualizarLeads = $auth->createPermission('visualizarLeads');
-            $visualizarLeads->$description = "Visualizar Leads do anunciante";
+            $visualizarLeads->description = "Visualizar Leads do anunciante";
             $auth->add($visualizarLeads);
             echo("Permissao '$visualizarLeads' criada com sucesso");
 
@@ -200,7 +200,8 @@
             $auth->addChild($anunciante, $verDetalhesLeilao);
 
 
-            //Relacionados
+            //Relacionados 
+            //O ADMIN NÃO DEVE TER PERMISSÃO PARA TUDO. O ADMIN É UM GESTOR MASTER.
             $auth->addChild($admin, $comprador); //admin tem todas as permissões de comprador.
             $auth->addChild($admin, $anunciante); //admin tem todas as permissões de anunciante.
             $auth->addChild($anunciante, $comprador); //Anunciante tem todas as permissões de comprador.
