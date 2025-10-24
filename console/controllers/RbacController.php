@@ -152,7 +152,74 @@
             $participarLeilao->description = "Participar em Leilão";
             $auth->add($participarLeilao);
             echo "Permissão '$participarLeilao' criada com sucesso";
+
+            //======PERMISSOES PARA GESTOR======
+            //Criar ????localização????
+            $criarlocalizacao = $auth->createPermission('criarlocalizacao');
+            $criarlocalizacao->description = "Criar uma localização";
+            $auth->add($criarlocalizacao);
+            echo "Permissão '$criarlocalizacao' criada com sucesso";
             
+            //Editar Localização
+            $editarlocalizacao = $auth->createPermission('editarlocalizacao');
+            $editarlocalizacao->description = "Editar uma localização";
+            $auth->add($editarlocalizacao);
+            echo "Permissão '$editarlocalizacao' criada com sucesso";
+
+            //Eliminar Localização
+            $eliminarlocalizacao = $auth->createPermission('eliminarlocalizacao');
+            $eliminarlocalizacao->description = "Eliminar uma localização";
+            $auth->add($eliminarlocalizacao);
+            echo "Permissão '$eliminarlocalizacao' criada com sucesso";
+
+            //Eliminar comentário
+            $eliminarcomentario = $auth->createPermission('eliminarcomentario');
+            $eliminarcomentario->description = "Eliminar uma comentário";
+            $auth->add($eliminarcomentario);
+            echo "Permissão '$eliminarcomentario' criada com sucesso";
+
+            //Acesso ao DashBoard Backend
+            $acessoDashboardBackEnd = $auth->createPermission('acessoDashboardBackEnd');
+            $acessoDashboardBackEnd->description = "Acesso a dashboard do Backend";
+            $auth->add($acessoDashboardBackEnd);
+            echo("Permissao '$acessoDashboardBackEnd' criada com sucesso");
+
+            //Avaliação de Denúncias
+            $aprovarDenuncia = $auth->createPermission('aprovarDenuncia');
+            $aprovarDenuncia->description = "Acesso a aprovação/reprovação de denúncia";
+            $auth->add($aprovarDenuncia);
+            echo("Permissao '$aprovarDenuncia' criada com sucesso");
+
+            //PERMISSÕES PARA ADMIN SÓ
+            //Criar utilizador
+            $criarUtilizador = $auth->createPermission('criarUtilizador');
+            $criarUtilizador->description = "Criar Utilizador";
+            $auth->add($criarUtilizador);
+            echo("Permissao '$criarUtilizador' criada com sucesso");
+
+            //Editar utilizador
+            $editarUtilizador = $auth->createPermission('editarUtilizador');
+            $editarUtilizador->description = "Editar Utilizador";
+            $auth->add($editarUtilizador);
+            echo("Permissao '$editarUtilizador' criada com sucesso");
+
+            //Eliminar Utilizador
+            $eliminarUtilizador = $auth->createPermission('eliminarUtilizador');
+            $eliminarUtilizador->description = "Eliminar Utilizador";
+            $auth->add($eliminarUtilizador);
+            echo("Permissao '$eliminarUtilizador' criada com sucesso");
+
+            //Editar Anúncio
+            $editarAnuncio = $auth->createPermission('editarAnuncio');
+            $editarAnuncio->description = "Editar Anuncio";
+            $auth->add($editarAnuncio);
+            echo("Permissao '$editarAnuncio' criada com sucesso");
+
+            //Eliminar Anúncio
+            $eliminarAnuncio = $auth->createPermission('eliminarAnuncio');
+            $eliminarAnuncio->description = "Eliminar Anuncio";
+            $auth->add($eliminarAnuncio);
+            echo("Permissao '$eliminarAnuncio' criada com sucesso");
             
             //======ROLES======
             $admin = $auth->createRole('admin');
@@ -177,7 +244,7 @@
             $auth->addChild($comprador, $verDetalhesAnuncio);
             $auth->addChild($comprador, $marcarVisita);
             $auth->addChild($comprador, $fazerReview);
-            $auth->addChild($comprador, $fazerComentarios); //Nao esta na BD - FALAR COM O GONÇAS
+            $auth->addChild($comprador, $fazerComentarios); 
             $auth->addChild($comprador, $fazerDenuncia);
             $auth->addChild($comprador, $adicionarFavoritos);
             $auth->addChild($comprador, $visualizarFavoritos);
@@ -199,12 +266,28 @@
             $auth->addChild($anunciante, $criarLeilao);
             $auth->addChild($anunciante, $verDetalhesLeilao);
 
+            //Gestor
+            $auth->addChild($gestor, $criarlocalizacao);
+            $auth->addChild($gestor, $editarlocalizacao);
+            $auth->addChild($gestor, $eliminarlocalizacao);
+            $auth->addChild($gestor, $eliminarcomentario);
+            $auth->addChild($gestor, $acessoDashboardBackEnd);
+            $auth->addChild($gestor, $aprovarDenuncia);
+
+            //admin
+            $auth->addChild($admin, $criarUtilizador);
+            $auth->addChild($gestor, $editarUtilizador);
+            $auth->addChild($gestor, $eliminarUtilizador);
+            $auth->addChild($gestor, $editarAnuncio);
+            $auth->addChild($gestor, $eliminarAnuncio);
+
 
             //Relacionados 
             //O ADMIN NÃO DEVE TER PERMISSÃO PARA TUDO. O ADMIN É UM GESTOR MASTER.
-            $auth->addChild($admin, $comprador); //admin tem todas as permissões de comprador.
-            $auth->addChild($admin, $anunciante); //admin tem todas as permissões de anunciante.
+            $auth->addChild($admin, $comprador); //????? admin tem todas as permissões de comprador. ?????
+            $auth->addChild($admin, $anunciante); //????? admin tem todas as permissões de anunciante. ????
             $auth->addChild($anunciante, $comprador); //Anunciante tem todas as permissões de comprador.
+            $auth->addChild($admin, $gestor); //Admin tem todas as permissões que o gestor tem
         }
     }
 
