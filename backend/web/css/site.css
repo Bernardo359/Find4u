@@ -88,3 +88,15 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+
+/*NOSSO CODIGO*/
+
+.logo_sidebar {
+    width: 50%;
+    height: auto;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
