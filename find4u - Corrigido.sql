@@ -14,8 +14,6 @@ USE `find4u` ;
 CREATE TABLE IF NOT EXISTS `find4u`.`userprofile` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `nome` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(55) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
   `contacto` INT NOT NULL,
   `fotoperfil` VARCHAR(45) NOT NULL,
   `contabloqueda` TINYINT NOT NULL,
@@ -84,23 +82,23 @@ CREATE TABLE IF NOT EXISTS `find4u`.`anuncio` (
   CONSTRAINT `fk_anuncio_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_anuncio_categoria`
     FOREIGN KEY (`categoriaid`)
     REFERENCES `find4u`.`categoria` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_anuncio_localizacao`
     FOREIGN KEY (`localizacaoid`)
     REFERENCES `find4u`.`localizacao` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_anuncio_estadoanuncio`
     FOREIGN KEY (`estadoanuncioid`)
     REFERENCES `find4u`.`estadoanuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE RESTRICT
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -116,13 +114,13 @@ CREATE TABLE IF NOT EXISTS `find4u`.`stats` (
   CONSTRAINT `fk_stats_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_stats_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -138,13 +136,13 @@ CREATE TABLE IF NOT EXISTS `find4u`.`favorito` (
   CONSTRAINT `fk_favorito_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_favorito_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -160,8 +158,8 @@ CREATE TABLE IF NOT EXISTS `find4u`.`foto` (
   CONSTRAINT `fk_foto_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -178,13 +176,13 @@ CREATE TABLE IF NOT EXISTS `find4u`.`review` (
   CONSTRAINT `fk_review_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_review_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -204,13 +202,13 @@ CREATE TABLE IF NOT EXISTS `find4u`.`visita` (
   CONSTRAINT `fk_visita_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_visita_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -230,13 +228,13 @@ CREATE TABLE IF NOT EXISTS `find4u`.`denuncia` (
   CONSTRAINT `fk_denuncia_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_denuncia_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
 
 -- -----------------------------------------------------
@@ -254,14 +252,24 @@ CREATE TABLE IF NOT EXISTS `find4u`.`comentario` (
   CONSTRAINT `fk_comentario_userprofile`
     FOREIGN KEY (`userprofileid`)
     REFERENCES `find4u`.`userprofile` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
   CONSTRAINT `fk_comentario_anuncio`
     FOREIGN KEY (`anuncioid`)
     REFERENCES `find4u`.`anuncio` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE)
 ENGINE = InnoDB;
+
+
+-- Modificação da tabela userprofile adicionar PK de user
+ALTER TABLE `userprofile`
+ADD COLUMN `user_id` INT NOT NULL,
+ADD CONSTRAINT `fk_userprofile_user`
+  FOREIGN KEY (`user_id`)
+  REFERENCES `user` (`id`)
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
