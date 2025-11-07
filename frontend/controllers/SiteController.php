@@ -78,6 +78,11 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
+    // @return mixed
+    public function actionCatalogo(){
+        return $this->render('catalogo');
+    }
+
     /**
      * Logs in a user.
      *
