@@ -1,7 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="logo_sidebar">
-        <img src="<?= Yii::getAlias('@web/img/logo.jpeg') ?>" alt="Find4u logo" style="opacity: .8">
+        <img src="<?= Yii::getAlias('@web/img/logo.jpeg') ?>" alt="Find4u logo" style=" width: 100%">
     </a>
 
     <!-- Sidebar -->
@@ -12,7 +12,7 @@
                 <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block"><?= Yii::$app->user->identity->username ?></a>
             </div>
         </div>
 
@@ -67,25 +67,57 @@
                     // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
                     ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
                     // ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
-                    ['label' => 'MULTI LEVEL EXAMPLE', 'header' => true],
-                    ['label' => 'Level1'],
+                    ['label' => 'CRUD Tabelas', 'header' => true],
                     [
-                        'label' => 'Level1',
-                        'items' => [
-                            ['label' => 'Level2', 'iconStyle' => 'far'],
-                            [
-                                'label' => 'Level2',
-                                'iconStyle' => 'far',
-                                'items' => [
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle'],
-                                    ['label' => 'Level3', 'iconStyle' => 'far', 'icon' => 'dot-circle']
-                                ]
-                            ],
-                            ['label' => 'Level2', 'iconStyle' => 'far']
-                        ]
+                        'label' => 'User Profile',
+                        'icon' => 'fas fa-users',
+                        'url' => ['/userprofile/index'],
                     ],
-                    ['label' => 'Level1'],
+                    [
+                        'label' => 'Anuncio',
+                        'icon' => 'fas fa-home',
+                        'url' => ['/anuncio/index'],
+                    ],
+                    [
+                        'label' => 'Categoria',
+                        'icon' => 'fas fa-list',
+                        'url' => ['/categoria/index'],
+                    ],
+                    [
+                        'label' => 'comentario',
+                        'icon' => 'fas fa-comment',
+                        'url' => ['/comentario/index'],
+                    ],
+                    [
+                        'label' => 'Denuncia',
+                        'icon' => 'fas fa-exclamation',
+                        'url' => ['/denuncia/index'],
+                    ],
+                    [
+                        'label' => 'Estado Anuncio',
+                        'icon' => 'fas fa-chart-pie',
+                        'url' => ['/estadoanuncio/index'],
+                    ],
+                    [
+                        'label' => 'Favoritos',
+                        'icon' => 'fas fa-heart',
+                        'url' => ['/favorito/index'],
+                    ],
+                    [
+                        'label' => 'Review',
+                        'icon' => 'fas fa-star',
+                        'url' => ['/review/index'],
+                    ],
+                    [
+                        'label' => 'Stats',
+                        'icon' => 'fas fa-chart-bar',
+                        'url' => ['/stats/index'],
+                    ],
+                    [
+                        'label' => 'Visita',
+                        'icon' => 'fas fa-calendar',
+                        'url' => ['/visita/index'],
+                    ],
                     ['label' => 'LABELS', 'header' => true],
                     ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
                     ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],

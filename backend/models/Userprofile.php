@@ -146,5 +146,4 @@ class Userprofile extends \yii\db\ActiveRecord
     {
         return $this->hasMany(Visita::class, ['userprofileid' => 'id']);
     }
-
 }
