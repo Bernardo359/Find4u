@@ -43,7 +43,8 @@ class Userprofile extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nome', 'contacto', 'fotoperfil', 'contabloqueda', 'dataregisto', 'user_id'], 'required'],
+            [['nome', 'contacto', 'contabloqueda', 'dataregisto', 'user_id'], 'required'],
+            ['fotoperfil', 'safe'],
             [['contacto', 'contabloqueda', 'user_id'], 'integer'],
             [['dataregisto'], 'safe'],
             [['nome', 'fotoperfil'], 'string', 'max' => 45],

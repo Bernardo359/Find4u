@@ -28,9 +28,14 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [
+                        'actions' => ['logout', 'index', 'create', 'read', 'update', 'view', 'delete'],
+                        'allow' => true,
+                        'roles' => ['admin'],
                     ],
                 ],
             ],
@@ -80,6 +85,11 @@ class SiteController extends Controller
 
         $model = new LoginForm();
         if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            if(Yii::$app->user->can('comprador') || Yii::$app->user->can('anunciante')){
+                Yii::$app->user->logout();
+                Yii::$app->session->setFlash('error', 'Não tem permissão para acessar ao backend.');
+                return $this->redirect(['site/login']);
+            }
             return $this->goBack();
         }
 

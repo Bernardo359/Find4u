@@ -438,6 +438,13 @@ Pre-loader Style
 
 /*=====codigo add======*/
 
+.btnFa button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
 .btnVisit a{
   padding-right: 0px;
   background-color: #1e1e1e;
@@ -485,6 +492,8 @@ Pre-loader Style
   height: auto;          /* mantém proporção */
   z-index: 100;
 }
+
+
 
 /*============================================*/
 

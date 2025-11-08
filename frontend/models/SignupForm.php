@@ -2,9 +2,11 @@
 
 namespace frontend\models;
 
+use backend\models\Userprofile;
 use Yii;
 use yii\base\Model;
 use common\models\User;
+use Symfony\Contracts\Service\Attribute\Required;
 
 /**
  * Signup form
@@ -14,6 +16,8 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
+    public $nome;
+    public $contacto;
 
 
     /**
@@ -23,7 +27,7 @@ class SignupForm extends Model
     {
         return [
             ['username', 'trim'],
-            ['username', 'required'],
+            ['username','required'],
             ['username', 'unique', 'targetClass' => '\common\models\User', 'message' => 'This username has already been taken.'],
             ['username', 'string', 'min' => 2, 'max' => 255],
 
@@ -35,6 +39,12 @@ class SignupForm extends Model
 
             ['password', 'required'],
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
+
+            ['contacto', 'required'],
+
+            ['nome', 'trim'],
+            ['nome', 'required'],
+            ['nome', 'string', 'max' => 255],
         ];
     }
 
@@ -48,7 +58,7 @@ class SignupForm extends Model
         if (!$this->validate()) {
             return null;
         }
-        
+
         $user = new User();
         $user->username = $this->username;
         $user->email = $this->email;
@@ -56,7 +66,32 @@ class SignupForm extends Model
         $user->generateAuthKey();
         $user->generateEmailVerificationToken();
 
-        return $user->save() && $this->sendEmail($user);
+        if ($user->save()) {
+            $userprofile = new Userprofile();
+            $userprofile->user_id = $user->id;
+            $userprofile->nome = $this->nome;
+            $userprofile->contacto = $this->contacto;
+            $userprofile->fotoperfil = null;
+            $userprofile->contabloqueda = 0;
+            $userprofile->dataregisto = date('Y-m-d H:i:s');
+            
+
+            if(!$userprofile->save()){
+                var_dump($userprofile->errors);
+                die;
+            }
+
+            //atribui o role comprador 
+            $auth = Yii::$app->authManager;
+            $compradorRole = $auth->getRole('comprador');
+            if ($compradorRole) {
+                $auth->assign($compradorRole, $user->id);
+            }
+
+            return $user;
+        }
+
+        return null;
     }
 
     /**

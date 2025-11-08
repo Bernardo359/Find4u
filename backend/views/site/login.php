@@ -1,5 +1,11 @@
 <?php
 use yii\helpers\Html;
+
+foreach (Yii::$app->session->getAllFlashes() as $key => $message): ?>
+    <div class="alert alert-<?= $key ?>">
+        <?= $message ?>
+    </div>
+<?php endforeach;
 ?>
 <div class="card">
     <div class="card-body login-card-body">
@@ -42,7 +48,7 @@ use yii\helpers\Html;
 
         <?php \yii\bootstrap4\ActiveForm::end(); ?>
 
-        <div class="social-auth-links text-center mb-3">
+        <!-- <div class="social-auth-links text-center mb-3">
             <p>- OR -</p>
             <a href="#" class="btn btn-block btn-primary">
                 <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
@@ -51,7 +57,7 @@ use yii\helpers\Html;
                 <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
             </a>
         </div>
-        <!-- /.social-auth-links -->
+         /.social-auth-links
 
         <p class="mb-1">
             <a href="forgot-password.html">I forgot my password</a>
@@ -59,6 +65,6 @@ use yii\helpers\Html;
         <p class="mb-0">
             <a href="register.html" class="text-center">Register a new membership</a>
         </p>
-    </div>
+    </div> -->
     <!-- /.login-card-body -->
 </div>

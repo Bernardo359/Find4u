@@ -9,6 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
+use yii\helpers\Url;
 
 AppAsset::register($this);
 ?>
@@ -40,13 +41,51 @@ AppAsset::register($this);
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="#" class="active">Home</a></li>
+                            <li><a href="<?= Url::to(['/site/index']) ?>" class="active">Home</a></li>
                             <li><a href="#">Imóveis</a></li>
-                            <!--=== Aqui colocar if se é compardor ou anunciante=== -->
+                            <?php
+                            if (Yii::$app->user->can('anunciante'))
+                                echo '<li class="btnVisit"><a href="#"><i class="fa fa-chart-line"></i> Meus Anuncios</a></li>';
+                            ?>
                             <li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>
-                            <li class="btnVisit"><a href="#"><i class="fa fa-chart-line"></i> Meus Anuncios</a></li>
                             <li class="btnFa"><a href="#"><i class="fa fa-heart"></i></a></li>
-                            <li class="btnFa"><a href="#"><i class="fa fa-user"></i></a></li>
+                            <div class="user-info">
+                                <?php if (Yii::$app->user->isGuest): ?>
+                                    <li class="btnFa">
+                                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="d-flex align-items-center">
+                                            <i class="fa fa-user me-1"></i> Login
+                                        </a>
+                                    </li>
+                                <?php else: ?>
+                                    <li class="btnFa">
+                                        <a href="<?= \yii\helpers\Url::to(['#']) ?>" class="d-flex align-items-center text-decoration-none">
+                                            <i class="fa fa-user me-1"></i>
+                                            <span><?= Yii::$app->user->identity->username ?></span>
+                                        </a>
+                                    </li>
+                                <?php endif; ?>
+
+
+                            </div>
+
+                            <?php if (!Yii::$app->user->isGuest): ?>
+                                <li class="btnFa" style="color: white; text-decoration: none;">
+                                    <?= Html::beginForm(['/site/logout'], 'post', [
+                                        'class' => 'm-0 p-0',
+                                        'style' => 'display:inline;'
+                                    ]) ?>
+                                    <button type="submit"
+                                        class="btn btn-link p-0 m-0"
+                                        style="color: inherit; font-size: inherit; line-height: 1;">
+                                        <i class="fa fa-right-to-bracket"></i>
+                                    </button>
+                                    <?= Html::endForm() ?>
+                                </li>
+                            <?php endif; ?>
+
+
+                            <!--<li class="btnFa"><a href="#"><i class="fa fa-right-to-bracket"></i></a></li>-->
+
                         </ul>
                         <a class='menu-trigger'>
                             <span>Menu</span>
