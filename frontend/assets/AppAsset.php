@@ -27,6 +27,7 @@ class AppAsset extends AssetBundle
         'template/js/owl-carousel.js',
         'template/js/counter.js',
         'template/js/custom.js',
+        'template/js/bootstrap.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

@@ -37,8 +37,8 @@ $this->title = 'My Yii Application';
         <div class="row">
           <div class="col-lg-4">
             <div class="left-image">
-              <img src="template/img/featured.jpg" alt="">
-              <a href="property-details.html"><img src="template/img/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
+              <img src="../template/img/featured.jpg" alt="">
+              <a href="property-details.html"><img src="../template/img/featured-icon.png" alt="" style="max-width: 60px; padding: 0px;"></a>
             </div>
           </div>
           <div class="col-lg-5">
@@ -88,19 +88,19 @@ $this->title = 'My Yii Application';
             <div class="info-table">
               <ul>
                 <li>
-                  <img src="template/img/info-icon-01.png" alt="" style="max-width: 52px;">
+                  <img src="../template/img/info-icon-01.png" alt="" style="max-width: 52px;">
                   <h4>250 m2<br><span>Total Flat Space</span></h4>
                 </li>
                 <li>
-                  <img src="template/img/info-icon-02.png" alt="" style="max-width: 52px;">
+                  <img src="../template/img/info-icon-02.png" alt="" style="max-width: 52px;">
                   <h4>Contract<br><span>Contract Ready</span></h4>
                 </li>
                 <li>
-                  <img src="template/img/info-icon-03.png" alt="" style="max-width: 52px;">
+                  <img src="../template/img/info-icon-03.png" alt="" style="max-width: 52px;">
                   <h4>Payment<br><span>Payment Process</span></h4>
                 </li>
                 <li>
-                  <img src="template/img/info-icon-04.png" alt="" style="max-width: 52px;">
+                  <img src="../template/img/info-icon-04.png" alt="" style="max-width: 52px;">
                   <h4>Safety<br><span>24/7 Under Control</span></h4>
                 </li>
               </ul>
@@ -181,7 +181,7 @@ $this->title = 'My Yii Application';
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <img src="template/img/deal-01.jpg" alt="">
+                        <img src="../template/img/deal-01.jpg" alt="">
                       </div>
                       <div class="col-lg-3">
                         <h4>Extra Info About Property</h4>
@@ -208,7 +208,7 @@ $this->title = 'My Yii Application';
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <img src="template/img/deal-02.jpg" alt="">
+                        <img src="../template/img/deal-02.jpg" alt="">
                       </div>
                       <div class="col-lg-3">
                         <h4>Detail Info About Villa</h4>
@@ -233,7 +233,7 @@ $this->title = 'My Yii Application';
                         </div>
                       </div>
                       <div class="col-lg-6">
-                        <img src="template/img/deal-03.jpg" alt="">
+                        <img src="../template/img/deal-03.jpg" alt="">
                       </div>
                       <div class="col-lg-3">
                         <h4>Extra Info About Penthouse</h4>
@@ -265,7 +265,7 @@ $this->title = 'My Yii Application';
       <div class="row">
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-01.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-01.jpg" alt=""></a>
             <span class="category">Luxury Villa</span>
             <h6>$2.264.000</h6>
             <h4><a href="property-details.html">18 New Street Miami, OR 97219</a></h4>
@@ -283,7 +283,7 @@ $this->title = 'My Yii Application';
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-02.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-02.jpg" alt=""></a>
             <span class="category">Luxury Villa</span>
             <h6>$1.180.000</h6>
             <h4><a href="property-details.html">54 Mid Street Florida, OR 27001</a></h4>
@@ -301,7 +301,7 @@ $this->title = 'My Yii Application';
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-03.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-03.jpg" alt=""></a>
             <span class="category">Luxury Villa</span>
             <h6>$1.460.000</h6>
             <h4><a href="property-details.html">26 Old Street Miami, OR 38540</a></h4>
@@ -319,7 +319,7 @@ $this->title = 'My Yii Application';
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-04.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-04.jpg" alt=""></a>
             <span class="category">Apartment</span>
             <h6>$584.500</h6>
             <h4><a href="property-details.html">12 New Street Miami, OR 12650</a></h4>
@@ -337,7 +337,7 @@ $this->title = 'My Yii Application';
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-05.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-05.jpg" alt=""></a>
             <span class="category">Penthouse</span>
             <h6>$925.600</h6>
             <h4><a href="property-details.html">34 Beach Street Miami, OR 42680</a></h4>
@@ -355,7 +355,7 @@ $this->title = 'My Yii Application';
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="item">
-            <a href="property-details.html"><img src="template/img/property-06.jpg" alt=""></a>
+            <a href="property-details.html"><img src="../template/img/property-06.jpg" alt=""></a>
             <span class="category">Modern Condo</span>
             <h6>$450.000</h6>
             <h4><a href="property-details.html">22 New Street Portland, OR 16540</a></h4>

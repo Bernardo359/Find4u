@@ -35,7 +35,7 @@ AppAsset::register($this);
                 <div class="col-12">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
-                        <a href="<?= \yii\helpers\Url::home() ?>" class="nav-logo">
+                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="nav-logo">
                             <img src="<?= Yii::getAlias('@web') ?>/img/Find4ULogo" alt="Logo">
                         </a>
                         <!-- ***** Logo End ***** -->
@@ -46,8 +46,8 @@ AppAsset::register($this);
                             <?php
                             if (Yii::$app->user->can('anunciante'))
                                 echo '<li class="btnVisit"><a href="#"><i class="fa fa-chart-line"></i> Meus Anuncios</a></li>';
-                            ?>
-                            <li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>
+                            else
+                                echo '<li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>';?>
                             <li class="btnFa"><a href="#"><i class="fa fa-heart"></i></a></li>
                             <div class="user-info">
                                 <?php if (Yii::$app->user->isGuest): ?>
