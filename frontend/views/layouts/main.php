@@ -105,6 +105,7 @@ AppAsset::register($this);
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
+        
 
     </main>
 
