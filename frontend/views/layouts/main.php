@@ -42,11 +42,15 @@ AppAsset::register($this);
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="<?= Url::to(['/site/index']) ?>" class="active">Home</a></li>
-                            <li><a href="#">Imóveis</a></li>
+                            <li><a href="<?= Url::to(['/site/catalogo']) ?>">Imóveis</a></li>
                             <?php
-                            if (Yii::$app->user->can('anunciante'))
-                                echo '<li class="btnVisit"><a href="#"><i class="fa fa-chart-line"></i> Meus Anuncios</a></li>';
-                            else
+                            if (Yii::$app->user->can('anunciante')){ ?>
+                                <li class="btnVisit">
+                                    <a href="<?= Url::to(['/site/backoffice']) ?>">
+                                        <i class="fa fa-chart-line"></i> Meus Anuncios
+                                    </a>
+                                </li>
+                            <?php } else
                                 echo '<li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>';?>
                             <li class="btnFa"><a href="#"><i class="fa fa-heart"></i></a></li>
                             <div class="user-info">

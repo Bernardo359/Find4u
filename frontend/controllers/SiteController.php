@@ -78,9 +78,12 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    // @return mixed
     public function actionCatalogo(){
         return $this->render('catalogo');
+    }
+
+    public function actionBackoffice(){
+        return $this->render('backoffice');
     }
 
     /**
