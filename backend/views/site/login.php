@@ -7,8 +7,8 @@
             </div>
         <?php endforeach;
         ?>
-        <div class="logo">
-            <img src="../../web/img/Find4UWhiteBackG.png" alt="Find4U">
+        <div class="loginLogo">
+            <img src="../../web/img/Find4UBackWhite2.png" alt="Find4U">
         </div>
         <div class="card">
             <div class="card-body login-card-body">

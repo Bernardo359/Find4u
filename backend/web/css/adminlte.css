@@ -34956,6 +34956,12 @@ a.close.disabled, a.disabled.mailbox-attachment-close {
   background-color: #6c757d;
 }
 
+.loginLogo img{
+  padding-bottom: 13%;
+  display: block;
+  margin: 0 auto;
+}
+
 .login-logo,
 .register-logo {
   font-size: 2.1rem;

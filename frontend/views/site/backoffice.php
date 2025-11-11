@@ -7,6 +7,14 @@ $this->title = 'Find4U - BackOffice Anunciante';
 ?>
 
     <div class="sidebar">
+        <div class="sidebar-header">
+            <div class="logo">
+                <!--LOGO Fin4U-->
+                <!-- <i class="fas fa-building"></i>
+                <span>ImóvelPro</span> -->
+                <img src="../../web/templateBack/img/Logo_find4u2.png">
+            </div>
+        </div>
         <div class="user-profile">
             <div class="user-info">
                 <div class="avatar">
