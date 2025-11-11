@@ -12,6 +12,8 @@ use yii\bootstrap5\NavBar;
 use yii\helpers\Url;
 
 AppAsset::register($this);
+
+$isBackoffice = Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'backoffice';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -26,7 +28,9 @@ AppAsset::register($this);
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php $this->beginBody() ?>
+    <?php $this->beginBody()?>
+
+    <?php if(!$isBackoffice): ?>
 
     <!-- ***** Header Area Start Comprador ***** -->
     <header class="header-area header-sticky">
@@ -100,6 +104,7 @@ AppAsset::register($this);
             </div>
         </div>
     </header>
+    <?php endif;?>
     <!-- ***** Header Area End Comprador***** -->
 
     <main role="main" class="flex-shrink-0">
@@ -113,12 +118,14 @@ AppAsset::register($this);
 
     </main>
 
+    <?php if(!$isBackoffice): ?>
     <footer class="footer mt-auto py-3 text-muted" style="background-color: black; color: white;">
         <div class="container">
             <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
             <p class="float-end"><?= Yii::powered() ?></p>
         </div>
     </footer>
+    <?php endif; ?>
 
     <?php $this->endBody() ?>
 </body>

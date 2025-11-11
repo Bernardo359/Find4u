@@ -73,7 +73,7 @@ $this->title = 'Find4U - BackOffice Anunciante';
                 <h1>Dashboard</h1>
                 <p>Bem-vindo ao seu painel de anunciante</p>
             </div>
-            <button class="btn-primary">
+            <button class="export btn-primary">
                 <i class="fas fa-download"></i>
                 Exportar Relatório
             </button>

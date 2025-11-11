@@ -5,8 +5,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   background: #f5f7fa;
   display: flex;
   height: 100vh;
@@ -145,7 +144,7 @@ body {
 }
 
 .menu-item.active::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   top: 50%;
@@ -234,7 +233,7 @@ body {
   font-size: 15px;
 }
 
-.btn-primary {
+.export{
   background: linear-gradient(135deg, #253439 0%, #7c939b 100%);
   color: white;
   border: none;
@@ -248,7 +247,7 @@ body {
   transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.export:hover {
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
 }
