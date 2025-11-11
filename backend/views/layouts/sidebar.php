@@ -52,7 +52,7 @@
                     [
                         'label' => 'Utilizadores',
                         'icon' => 'fas fa-users',
-                        'badge' => '<span class="right badge badge-danger">New</span>',
+                        'url' => ['/user/index'],
                     ],
                     [
                         'label' => 'Localizações',
