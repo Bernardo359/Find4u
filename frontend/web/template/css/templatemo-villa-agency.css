@@ -151,7 +151,7 @@ body {
 }
 
 .section-heading h6 {
-  color: #ee626b;
+  color: #B49D7E;    /*letras home page*/
   font-size: 15px;
   text-transform: uppercase;
   font-weight: 700;
@@ -171,7 +171,7 @@ body {
 }
 
 .icon-button a i {
-  background-color: #f35525;
+  background-color: #B49D7E;
   height: 50px;
   width: 50px;
   text-align: center;
@@ -183,7 +183,7 @@ body {
 }
 
 .icon-button a:hover {
-  color: #f35525;
+  color: #253439;
 }
 
 .icon-button a:hover i {
@@ -204,7 +204,7 @@ body {
 }
 
 .main-button a:hover {
-  background-color: #f35525;
+  background-color: #B49D7E;
   color: #fff;
 }
 
@@ -802,7 +802,7 @@ Banner Style
 
 .main-banner .item span.category em {
   font-style: normal;
-  color: #f35525;
+  color: #B49D7E;
 }
 
 .main-banner .item h2 {
@@ -831,7 +831,7 @@ Banner Style
 }
 
 .main-banner .owl-dots .active {
-  background-color: #f35525;
+  background-color: #B49D7E;
 }
 
 .main-banner .owl-nav {
@@ -892,7 +892,7 @@ Featured Style
   width: 110px;
   height: 110px;
   line-height: 110px;
-  background-color: #f35525;
+  background-color: #253439;
   border-radius: 50%;
   text-align: center;
   position: absolute;
@@ -932,7 +932,7 @@ Featured Style
 }
 
 .featured .accordion-button:not(.collapsed) {
-  color: #f35525;
+  color: #B49D7E;
   background-color: #fafafa;
   outline: none;
 }
@@ -1046,7 +1046,7 @@ Fun Facts Style
 }
 
 .fun-facts .counter {
-  background-color: #ffeee9;
+  background-color: #e9f3ff;
   position: relative;
   border-radius: 10px;
   width: 270px;
@@ -1071,14 +1071,14 @@ Fun Facts Style
 .fun-facts .counter h2 {
   margin-right: 25px;
   font-size: 40px;
-  color: #f35525;
+  color: #B49D7E;
 }
 
 .fun-facts .counter:after {
   position: absolute;
   width: 50px;
   height: 50px;
-  background-color: #f35525;
+  background-color: #253439;
   border-radius: 50%;
   content: '';
   right: -25px;
@@ -1114,7 +1114,7 @@ Best Deal Style
 }
 
 .best-deal .tabs-content .nav-tabs .nav-link.active {
-  background-color: #f35525 !important;
+  background-color: #B49D7E !important;
   color: #fff;
 }
 
@@ -1234,9 +1234,9 @@ Properties Style
   padding-bottom: 30px;
 }
 
-.properties .item h6 {
+.properties .item h6 { /*price color*/
   font-size: 20px;
-  color: #f35525;
+  color: #253439;
   margin-top: 6px;
   display: inline-block;
   /* float: right; */
@@ -1470,7 +1470,7 @@ Properties Style
 }
 
 .properties ul.properties-filter li a.is_active {
-  background-color: #f35525;
+  background-color: #B49D7E;
   color: #fff;
 }
 
@@ -1479,7 +1479,7 @@ Properties Style
 }
 
 .properties ul.properties-filter li a:hover {
-  color: #f35525;
+  color: #B49D7E;
 }
 
 .properties ul.pagination {
@@ -1510,7 +1510,7 @@ Properties Style
 
 .properties ul.pagination li a:hover,
 .properties ul.pagination li a.is_active {
-  background-color: #f35525;
+  background-color: #B49D7E;
   color: #fff;
 }
 

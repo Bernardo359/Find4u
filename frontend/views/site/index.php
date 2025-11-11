@@ -9,22 +9,22 @@ $this->title = 'My Yii Application';
     <div class="owl-carousel owl-banner">
       <div class="item item-1">
         <div class="header-text">
-          <span class="category">Toronto, <em>Canada</em></span>
-          <h2>Hurry!<br>Get the Best Villa for you</h2>
+          <span class="category">Leiria, <em>Portugal</em></span>
+          <h2>Não Percas!<br>Compre já a sua casa</h2>
         </div>
       </div>
 
       <div class="item item-2">
         <div class="header-text">
-          <span class="category">Melbourne, <em>Australia</em></span>
-          <h2>Be Quick!<br>Get the best villa in town</h2>
+          <span class="category">Lisboa, <em>Portugal</em></span>
+          <h2>Rápido!<br>A tua casa ja espera por ti</h2>
         </div>
       </div>
 
       <div class="item item-3">
         <div class="header-text">
-          <span class="category">Miami, <em>South Florida</em></span>
-          <h2>Act Now!<br>Get the highest level penthouse</h2>
+          <span class="category">Porto, <em>Portugal</em></span>
+          <h2>Rapidoo!<br>A sua nova casa espera por si</h2>
         </div>
       </div>
     </div>
@@ -43,8 +43,8 @@ $this->title = 'My Yii Application';
           </div>
           <div class="col-lg-5">
             <div class="section-heading">
-              <h6>| Featured</h6>
-              <h2>Best Appartment &amp; Sea view</h2>
+              <h6>| Apresentamos</h6>
+              <h2>O melhor apartamento &amp; Vista para o mar</h2>
             </div>
             <div class="accordion" id="accordionExample">
               <div class="accordion-item">
@@ -89,19 +89,19 @@ $this->title = 'My Yii Application';
               <ul>
                 <li>
                   <img src="../template/img/info-icon-01.png" alt="" style="max-width: 52px;">
-                  <h4>250 m2<br><span>Total Flat Space</span></h4>
+                  <h4>250 m2<br><span>Área do imóvel</span></h4>
                 </li>
                 <li>
                   <img src="../template/img/info-icon-02.png" alt="" style="max-width: 52px;">
-                  <h4>Contract<br><span>Contract Ready</span></h4>
+                  <h4>Contrato<br><span>Escolha o seu contrato</span></h4>
                 </li>
                 <li>
                   <img src="../template/img/info-icon-03.png" alt="" style="max-width: 52px;">
-                  <h4>Payment<br><span>Payment Process</span></h4>
+                  <h4>Pagamento<br><span>Processo de pagamento</span></h4>
                 </li>
                 <li>
                   <img src="../template/img/info-icon-04.png" alt="" style="max-width: 52px;">
-                  <h4>Safety<br><span>24/7 Under Control</span></h4>
+                  <h4>Segurança<br><span>24/7 sobre controlo</span></h4>
                 </li>
               </ul>
             </div>
