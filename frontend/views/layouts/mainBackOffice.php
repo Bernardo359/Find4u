@@ -36,7 +36,9 @@ use yii\helpers\Url;
 <div class="sidebar">
     <div class="sidebar-header">
         <div class="logo">
-            <img src="<?= Url::to('@web/templateBack/img/Logo_find4u2.png') ?>" alt="Find4U">
+            <a href="<?= \yii\helpers\Url::to(['backoffice/index']) ?>">
+                <img src="<?= Url::to('@web/templateBack/img/Logo_find4u2.png') ?>" alt="Find4U">
+            </a>
         </div>
     </div>
     
