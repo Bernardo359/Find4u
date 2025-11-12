@@ -5,68 +5,6 @@
 $this->title = 'Find4U - BackOffice Anunciante';
 
 ?>
-
-    <div class="sidebar">
-        <div class="sidebar-header">
-            <div class="logo">
-                <!--LOGO Fin4U-->
-                <!-- <i class="fas fa-building"></i>
-                <span>ImóvelPro</span> -->
-                <img src="../../web/templateBack/img/Logo_find4u2.png">
-            </div>
-        </div>
-        <div class="user-profile">
-            <div class="user-info">
-                <div class="avatar">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="user-details">
-                    <h3>João Silva</h3>
-                    <p>Anunciante Premium</p>
-                </div>
-            </div>
-            <button class="new-listing-btn">
-                <i class="fas fa-plus"></i>
-                Novo Anúncio
-            </button>
-        </div>
-
-        <div class="menu">
-            <div class="menu-section">
-                <div class="menu-label">Gestão</div>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Estatísticas</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-chart-line"></i>
-                    <span>Leads</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-calendar-alt"></i>
-                    <span>Agendamentos</span>
-                    <span class="badge">2</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-users"></i>
-                    <span>Os Meus Imóveis</span>
-                </a>
-                <a href="#" class="menu-item">
-                    <i class="fas fa-comments"></i>
-                    <span>Mensagens</span>
-                    <span class="badge">5</span>
-                </a>    
-            </div>
-        </div>
-
-        <div class="sidebar-footer">
-            <button class="logout-btn">
-                <i class="fas fa-sign-out-alt"></i>
-                <span>Sair da Conta</span>
-            </button>
-        </div>
-    </div>
-
     <div class="main-content">
         <div class="dashboard-header">
             <div>
