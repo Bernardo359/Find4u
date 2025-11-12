@@ -14,7 +14,13 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'status')->textInput() ?>
 
-    <?= $form->field($model, 'role')->dropDownList([]) ?>
+    <div class="form-group">
+        <?= Html::label('Role', 'role') ?>
+        <?= Html::dropDownList('role', $currentRole ?? null, $roleList ?? [], [
+            'class' => 'form-control',
+            'prompt' => 'Seleciona uma role para o user',
+        ]) ?>
+    </div>
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

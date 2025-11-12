@@ -9,7 +9,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="<?=$assetDir?>/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+               <i class="fa fa-user"></i>
             </div>
             <div class="info">
                 <a href="#" class="d-block"><?= Yii::$app->user->identity->username ?></a>
@@ -53,6 +53,7 @@
                         'label' => 'Utilizadores',
                         'icon' => 'fas fa-users',
                         'url' => ['/user/index'],
+                        'visible' => Yii::$app->user->can('admin'),
                     ],
                     [
                         'label' => 'Localizações',

@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use yii;
 use common\models\User;
 use common\models\UserSearch;
 use yii\web\Controller;
@@ -92,13 +93,44 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRoles();
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
+        $roleList = [];
+        foreach ($roles as $role) {
+            $roleList[$role->name] = $role->name;
+        }
+
+        $currentRole = $auth->getRolesByUser($model->id);
+        $currentRoleString = key($currentRole);
+
+        if ($this->request->isPost && $model->load($this->request->post())) {
+            $assignedRole = $this->request->post('role');
+
+            $firstInfoRole = reset($currentRole);
+
+            //elimina o role atual se ele existir
+            if ($firstInfoRole) {
+                $auth->revoke($firstInfoRole, $model->id);
+            }
+
+            //atribui a nova role selecionada
+            $RoleSelecionada = $auth->getRole($assignedRole);
+            if ($RoleSelecionada) {
+                $auth->assign($RoleSelecionada, $model->id);
+            }
+
+            $model->save();
+
+            
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
+
         return $this->render('update', [
             'model' => $model,
+            'roleList' => $roleList,
+            'currentRoleString' => $currentRoleString,
         ]);
     }
 
