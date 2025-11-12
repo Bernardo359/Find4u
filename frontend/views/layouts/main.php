@@ -13,7 +13,7 @@ use yii\helpers\Url;
 
 AppAsset::register($this);
 
-$isBackoffice = Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'backoffice';
+$isBackoffice = Yii::$app->controller->id === 'backoffice';
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -50,7 +50,7 @@ $isBackoffice = Yii::$app->controller->id === 'site' && Yii::$app->controller->a
                             <?php
                             if (Yii::$app->user->can('anunciante')){ ?>
                                 <li class="btnVisit">
-                                    <a href="<?= Url::to(['/site/backoffice']) ?>">
+                                    <a href="<?= Url::to(['/backoffice/index']) ?>">
                                         <i class="fa fa-chart-line"></i> Meus Anuncios
                                     </a>
                                 </li>

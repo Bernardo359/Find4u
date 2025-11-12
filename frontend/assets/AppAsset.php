@@ -19,7 +19,6 @@ class AppAsset extends AssetBundle
         'template/css/animate.css',
         'template/css/site.css',
         'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css',
-        'templateBack/css/backoffice.css',
     ];
     public $js = [
         'template/vendor/jquery/jquery.min.js',
@@ -29,7 +28,6 @@ class AppAsset extends AssetBundle
         'template/js/counter.js',
         'template/js/custom.js',
         'template/js/bootstrap.min.js',
-        'templateBack/js/backoffice.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
