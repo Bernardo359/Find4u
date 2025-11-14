@@ -36,6 +36,9 @@ class BackofficeController extends Controller
                         'roles' => ['anunciante'],
                     ],
                 ],
+                'denyCallback' => function ($rule, $action) {
+                return Yii::$app->response->redirect(['site/index']);
+                }
             ],
             'verbs' => [
                 'class' => VerbFilter::class,

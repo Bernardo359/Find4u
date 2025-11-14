@@ -159,10 +159,10 @@ body {
 
 .icon-button a {
   display: inline-block;
-  background-color: #1e1e1e;
+  background-color: #253439;
   color: #fff;
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 600;
   height: 50px;
   line-height: 50px;
   padding: 0px 30px 0px 0px;
@@ -183,7 +183,7 @@ body {
 }
 
 .icon-button a:hover {
-  color: #253439;
+  color: #B49D7E;
 }
 
 .icon-button a:hover i {

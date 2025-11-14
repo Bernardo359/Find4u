@@ -189,7 +189,7 @@ $this->title = 'My Yii Application';
                           <br><br>When you need free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Portfolio, TemplateMo One Page Layouts, etc.
                         </p>
                         <div class="icon-button">
-                          <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                          <a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a>
                         </div>
                       </div>
                     </div>
