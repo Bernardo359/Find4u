@@ -30,6 +30,8 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+    public $password_plain;
+
 
     /**
      * {@inheritdoc}
@@ -57,6 +59,12 @@ class User extends ActiveRecord implements IdentityInterface
         return [
             ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
+            [['password_plain'], 'safe'],
+            [['username'], 'required'],
+            [['username'], 'string', 'max' => 255],
+            [['email'], 'required'],
+            [['email'], 'email'],
+            [['email'], 'unique'],
         ];
     }
 
@@ -217,4 +225,17 @@ class User extends ActiveRecord implements IdentityInterface
     {
         return $this->hasOne(UserProfile::class, ['user_id' => 'id']);
     }
+
+    public function getRoleName(){
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+
+        if(!empty($roles)){
+            return array_key_first($roles);
+        }
+
+        return '(sem role)';
+    }
+
+    
 }

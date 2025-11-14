@@ -6,11 +6,19 @@ use yii\widgets\ActiveForm;
 /** @var yii\web\View $this */
 /** @var common\models\User $model */
 /** @var yii\widgets\ActiveForm $form */
+
+//,  'readonly' => !$model->isNewRecord - para deixar as TXTs em readonly
 ?>
 
 <div class="user-form">
 
     <?php $form = ActiveForm::begin(); ?>
+
+    <?= $form->field($model, 'username')->textInput() ?>
+
+    <?= $form->field($model, 'email')->textInput(['maxlength' => true]) ?>
+
+    <?= $form->field($model, 'password_plain')->passwordInput(['placeholder' => 'Cria/Edita password'])->label("Password") ?>
 
     <?= $form->field($model, 'status')->textInput() ?>
 

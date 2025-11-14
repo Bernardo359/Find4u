@@ -36,6 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
             //'password_reset_token',
             'email:email',
             'status',
+            [
+                'attribute' => 'roleName',
+                'label' => 'Role',
+            ],
             //'created_at',
             //'updated_at',
             //'verification_token',

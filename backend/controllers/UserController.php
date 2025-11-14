@@ -56,8 +56,15 @@ class UserController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $auth = Yii::$app->authManager;
+
+        $currentRole = $auth->getRolesByUser($model->id);
+        $currentRoleString = key($currentRole);
+
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'currentRoleString' => $currentRoleString,
         ]);
     }
 
@@ -70,9 +77,36 @@ class UserController extends Controller
     {
         $model = new User();
 
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRoles();
+
+        $roleList = [];
+        foreach ($roles as $role) {
+            $roleList[$role->name] = $role->name;
+        }
+
         if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
+            if ($model->load($this->request->post())) {
+
+                if ($model->password_plain) {
+                    //cria as hash da pass
+                    $model->setPassword($model->password_plain);
+                    $model->generateAuthKey($model->password_plain);
+                    $model->save();
+
+                    //pega role selecionada no dropdown
+                    $assignedRole = $this->request->post('role');
+
+                    //atribui a nova role selecionada
+                    $RoleSelecionada = $auth->getRole($assignedRole);
+                    if ($RoleSelecionada) {
+                        $auth->assign($RoleSelecionada, $model->id);
+                    }
+                }
+
+                if ($model->save()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }
             }
         } else {
             $model->loadDefaultValues();
@@ -80,6 +114,7 @@ class UserController extends Controller
 
         return $this->render('create', [
             'model' => $model,
+            'roleList' => $roleList,
         ]);
     }
 
@@ -107,6 +142,13 @@ class UserController extends Controller
         if ($this->request->isPost && $model->load($this->request->post())) {
             $assignedRole = $this->request->post('role');
 
+            //da update na password 
+            if($model->password_plain){
+                $model->setPassword($model->password_plain);
+                $model->generateAuthKey($model->password_plain);
+            }
+
+
             $firstInfoRole = reset($currentRole);
 
             //elimina o role atual se ele existir
@@ -122,7 +164,7 @@ class UserController extends Controller
 
             $model->save();
 
-            
+
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -143,6 +185,9 @@ class UserController extends Controller
      */
     public function actionDelete($id)
     {
+       $roles = Yii::$app->authManager->getRolesByUser($id);
+       Yii::$app->authManager->revokeAll($id);
+
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
