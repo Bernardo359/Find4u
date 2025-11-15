@@ -82,8 +82,8 @@ class SiteController extends Controller
         return $this->render('catalogo');
     }
 
-    public function actionBackoffice(){
-        return $this->render('backoffice');
+    public function actionFavoritos(){
+        return $this->render('favoritos');
     }
 
     /**

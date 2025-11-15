@@ -40,7 +40,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="nav-logo">
-                            <img src="<?= Yii::getAlias('@web') ?>/img/Find4ULogo" alt="Logo">
+                            <img src="<?= Yii::getAlias('@web') ?>/img/Find4ULogo.png" alt="Logo">
                         </a>
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
@@ -56,7 +56,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                                 </li>
                             <?php } else
                                 echo '<li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>';?>
-                            <li class="btnFa"><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li class="btnFa"><a href="<?= Url::to(['/site/favoritos']) ?>"><i class="fa fa-heart"></i></a></li>
                             <div class="user-info">
                                 <?php if (Yii::$app->user->isGuest): ?>
                                     <li class="btnFa">
