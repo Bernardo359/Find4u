@@ -1,9 +1,16 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 use common\models\User;
+use backend\models\Anuncio;
+use backend\models\Comentario;
+use backend\models\Denuncia;
+use backend\models\Favorito;
+use backend\models\Review;
+use backend\models\Stats;
+use backend\models\Visita;
 
 /**
  * This is the model class for table "userprofile".
@@ -48,6 +55,7 @@ class Userprofile extends \yii\db\ActiveRecord
             [['contacto', 'contabloqueda', 'user_id'], 'integer'],
             [['dataregisto'], 'safe'],
             [['nome', 'fotoperfil'], 'string', 'max' => 45],
+            [['localizacao'], 'string', 'max' => 255],
             [['user_id'], 'exist', 'skipOnError' => true, 'targetClass' => User::class, 'targetAttribute' => ['user_id' => 'id']],
         ];
     }
@@ -61,6 +69,7 @@ class Userprofile extends \yii\db\ActiveRecord
             'id' => 'ID',
             'nome' => 'Nome',
             'contacto' => 'Contacto',
+            'localizacao' => 'Localizacao',
             'fotoperfil' => 'Fotoperfil',
             'contabloqueda' => 'Contabloqueda',
             'dataregisto' => 'Dataregisto',

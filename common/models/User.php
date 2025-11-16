@@ -7,7 +7,7 @@ use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
-use backend\models\Userprofile;
+use common\models\Userprofile;
 
 /**
  * User model
@@ -226,16 +226,15 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->hasOne(UserProfile::class, ['user_id' => 'id']);
     }
 
-    public function getRoleName(){
+    public function getRoleName()
+    {
         $auth = Yii::$app->authManager;
         $roles = $auth->getRolesByUser($this->id);
 
-        if(!empty($roles)){
+        if (!empty($roles)) {
             return array_key_first($roles);
         }
 
         return '(sem role)';
     }
-
-    
 }

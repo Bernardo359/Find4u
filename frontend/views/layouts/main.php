@@ -66,7 +66,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                                     </li>
                                 <?php else: ?>
                                     <li class="btnFa">
-                                        <a href="<?= \yii\helpers\Url::to(['#']) ?>" class="d-flex align-items-center text-decoration-none">
+                                        <a href="<?= \yii\helpers\Url::to(['/site/perfil']) ?>" class="d-flex align-items-center text-decoration-none">
                                             <i class="fa fa-user me-1"></i>
                                             <span><?= Yii::$app->user->identity->username ?></span>
                                         </a>

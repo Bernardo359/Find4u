@@ -78,12 +78,37 @@ class SiteController extends Controller
         return $this->render('index');
     }
 
-    public function actionCatalogo(){
+    public function actionCatalogo()
+    {
         return $this->render('catalogo');
     }
 
-    public function actionBackoffice(){
+    public function actionBackoffice()
+    {
         return $this->render('backoffice');
+    }
+
+    public function actionPerfil()
+    {
+        $user = Yii::$app->user->identity;
+        $auth = Yii::$app->authManager;
+        $profile = $user->profile;
+
+        if($profile->contabloqueda == 0){
+            $blockedInfo = "Esta Ativa";
+        }else{
+            $blockedInfo = "Esta Bloqueada";
+        }
+
+        $currentRole = $auth->getRolesByUser($user->id);
+        $currentRoleString = key($currentRole);
+
+        return $this->render('perfil', [
+            'user' => $user,
+            'profile' => $profile,
+            'blockedInfo' => $blockedInfo,
+            'currentRoleString' => $currentRoleString,
+        ]);
     }
 
     /**
