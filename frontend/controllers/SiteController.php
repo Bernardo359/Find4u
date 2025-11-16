@@ -83,14 +83,14 @@ class SiteController extends Controller
         return $this->render('catalogo');
     }
 
-<<<<<<< HEAD
     public function actionBackoffice()
     {
         return $this->render('backoffice');
-=======
-    public function actionFavoritos(){
+    }
+
+    public function actionFavoritos()
+    {
         return $this->render('favoritos');
->>>>>>> 11b17e3ade64dc091f2279640fc82da052d26dca
     }
 
     public function actionPerfil()
