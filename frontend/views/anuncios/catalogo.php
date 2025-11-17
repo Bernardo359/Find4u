@@ -38,7 +38,7 @@ $this->title = 'Find4U - Catálogo';
               <li>Parking: <span>6 spots</span></li>
             </ul>
             <div class="main-button">
-              <a href="<?= Url::to(['/site/detalhes'])?>">  
+              <a href="<?= Url::to(['/anuncios/detalhes'])?>">  
             </div>
           </div>
         </div>

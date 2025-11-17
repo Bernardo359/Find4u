@@ -46,7 +46,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
                             <li><a href="<?= Url::to(['/site/index']) ?>" class="active">Home</a></li>
-                            <li><a href="<?= Url::to(['/site/catalogo']) ?>">Imóveis</a></li>
+                            <li><a href="<?= Url::to(['/anuncios/catalogo']) ?>">Imóveis</a></li>
                             <?php
                             if (Yii::$app->user->can('anunciante')){ ?>
                                 <li class="btnVisit">
@@ -59,7 +59,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                                 <?php
                             if (!Yii::$app->user->isGuest){ ?>
                                 <li class="btnFa">
-                                    <a href="<?= Url::to(['/site/favoritos']) ?>">
+                                    <a href="<?= Url::to(['/anuncios/favoritos']) ?>">
                                         <i class="fa fa-heart"></i>
                                     </a>
                                 </li>
@@ -73,7 +73,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                                     </li>
                                 <?php else: ?>
                                     <li class="btnFa">
-                                        <a href="<?= \yii\helpers\Url::to(['/site/perfil']) ?>" class="d-flex align-items-center text-decoration-none">
+                                        <a href="<?= \yii\helpers\Url::to(['/perfil/perfil']) ?>" class="d-flex align-items-center text-decoration-none">
                                             <i class="fa fa-user me-1"></i>
                                             <span><?= Yii::$app->user->identity->username ?></span>
                                         </a>
