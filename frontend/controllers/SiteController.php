@@ -93,6 +93,11 @@ class SiteController extends Controller
         return $this->render('favoritos');
     }
 
+    public function actionDetalhes()
+    {
+        return $this->render('detalhes');
+    }
+
     public function actionPerfil()
     {
         $user = Yii::$app->user->identity;

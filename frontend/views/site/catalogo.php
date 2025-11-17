@@ -2,6 +2,7 @@
 
 /** @var yii\web\View $this */
 
+use yii\helpers\Url;
 $this->title = 'Find4U - Catálogo';
 
 ?>
@@ -37,7 +38,7 @@ $this->title = 'Find4U - Catálogo';
               <li>Parking: <span>6 spots</span></li>
             </ul>
             <div class="main-button">
-              <a href="property-details.html">Schedule a visit</a>
+              <a href="<?= Url::to(['/site/detalhes'])?>">  
             </div>
           </div>
         </div>
