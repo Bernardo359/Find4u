@@ -71,8 +71,8 @@ class BackofficeController extends Controller
      * @return mixed
      */
     public function actionIndex()
-{
-    $this->layout = 'mainBackOffice';
-    return $this->render('index');
-}
+    {
+        $this->layout = 'mainBackOffice';
+        return $this->render('index');
+    }
 }

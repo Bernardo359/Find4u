@@ -56,7 +56,14 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                                 </li>
                             <?php } else
                                 echo '<li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>';?>
-                            <li class="btnFa"><a href="<?= Url::to(['/site/favoritos']) ?>"><i class="fa fa-heart"></i></a></li>
+                                <?php
+                            if (!Yii::$app->user->isGuest){ ?>
+                                <li class="btnFa">
+                                    <a href="<?= Url::to(['/site/favoritos']) ?>">
+                                        <i class="fa fa-heart"></i>
+                                    </a>
+                                </li>
+                            <?php } ?>
                             <div class="user-info">
                                 <?php if (Yii::$app->user->isGuest): ?>
                                     <li class="btnFa">
