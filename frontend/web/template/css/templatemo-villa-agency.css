@@ -348,7 +348,7 @@ Pre-loader Style
 }
 
 .sub-header ul.social-links li a:hover {
-  background-color: #f35525;
+  background-color: #B49D7E;
 }
 
 .sub-header ul.info li {
@@ -367,7 +367,7 @@ Pre-loader Style
 
 .sub-header ul.info li i {
   font-size: 20px;
-  color: #f35525;
+  color: #B49D7E;
   margin-right: 8px;
 }
 
@@ -1567,7 +1567,7 @@ Single Page Style
 }
 
 .single-property .accordion-button:not(.collapsed) {
-  color: #f35525;
+  color: #253439;
   background-color: #fafafa;
   outline: none;
 }

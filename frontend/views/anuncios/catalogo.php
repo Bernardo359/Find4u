@@ -24,12 +24,13 @@ $this->title = 'Find4U - Catálogo';
         </li>
       </ul>
       <div class="row properties-box">
+         <a href="<?= Url::to(['/anuncios/detalhes'])?>">
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
           <div class="item">
-            <a href="property-details.html"><img src="../../web/template/img/property-01.jpg" alt="propriedade1"></a>
+            <img src="../../web/template/img/property-01.jpg" alt="propriedade1">
             <span class="category">Luxury Villa</span>
             <h6>$2.264.000</h6>
-            <h4><a href="property-details.html">18 Old Street Miami, OR 97219</a></h4>
+            <h4>18 Old Street Miami, OR 97219</h4>
             <ul>
               <li>Bedrooms: <span>8</span></li>
               <li>Bathrooms: <span>8</span></li>
@@ -37,10 +38,11 @@ $this->title = 'Find4U - Catálogo';
               <li>Floor: <span>3</span></li>
               <li>Parking: <span>6 spots</span></li>
             </ul>
-            <div class="main-button">
-              <a href="<?= Url::to(['/anuncios/detalhes'])?>">  
-            </div>
+            <!-- <div class="main-button">
+              <a href="<?= Url::to(['/anuncios/detalhes'])?>"> Marcar Visita</a>  
+            </div> -->
           </div>
+          </a>  
         </div>
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 str">
           <div class="item">
