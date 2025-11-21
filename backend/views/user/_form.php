@@ -24,7 +24,7 @@ use yii\widgets\ActiveForm;
 
     <div class="form-group">
         <?= Html::label('Role', 'role') ?>
-        <?= Html::dropDownList('role', $currentRole ?? null, $roleList ?? [], [
+        <?= Html::dropDownList('role', $currentRoleString ?? null, $roleList ?? [], [
             'class' => 'form-control',
             'prompt' => 'Seleciona uma role para o user',
         ]) ?>
