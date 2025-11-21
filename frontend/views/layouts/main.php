@@ -45,7 +45,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <li><a href="<?= Url::to(['/site/index']) ?>" class="active">Home</a></li>
+                            <li><a href="<?= Url::to(['/site/index']) ?>">Home</a></li>
                             <li><a href="<?= Url::to(['/anuncios/catalogo']) ?>">Imóveis</a></li>
                             <?php
                             if (Yii::$app->user->can('anunciante')){ ?>
