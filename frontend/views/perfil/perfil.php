@@ -51,7 +51,12 @@ $this->title = 'Perfil';
                     </div>
                 </div>
                 <div class="info-item">
-                    <i class="fa-solid fa-ban"></i>
+                    <?php if($profile->contabloqueda == 0): ?>
+                       <i class="fa-regular fa-circle-check" style="color: #48b191ff;"></i>
+                    <?php else: ?>
+                         <i class="fa-solid fa-ban " style="color: #e66363ff;"></i>
+                    <?php endif; ?>
+
                     <div>
                         <div class="label">Conta</div>
                         <div class="value"><?= $blockedInfo ?></div>
