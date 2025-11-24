@@ -11,10 +11,9 @@ use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+use common\models\Userprofile;
+use common\models\User;
+use yii\web\NotFoundHttpException;
 
 /**
  * Site controller
@@ -74,26 +73,54 @@ class PerfilController extends Controller
      * @return mixed
      */
 
-    public function actionPerfil()
+    public function actionProfile()
     {
         $user = Yii::$app->user->identity;
         $auth = Yii::$app->authManager;
         $profile = $user->profile;
 
-        if($profile->contabloqueda == 0){
+        if ($profile->contabloqueda == 0) {
             $blockedInfo = "Esta Ativa";
-        }else{
+        } else {
             $blockedInfo = "Esta Bloqueada";
         }
 
         $currentRole = $auth->getRolesByUser($user->id);
         $currentRoleString = key($currentRole);
 
-        return $this->render('perfil', [
+        return $this->render('profile', [
             'user' => $user,
             'profile' => $profile,
             'blockedInfo' => $blockedInfo,
             'currentRoleString' => $currentRoleString,
         ]);
+    }
+
+    public function actionUpdate($id)
+    {
+        $profile = UserProfile::findOne(['user_id' => $id]);
+        $user = User::findOne($id);
+
+        if ($profile->load(Yii::$app->request->post()) && $user->load(Yii::$app->request->post())) {
+            $user->username = $profile->nome; // se você quer sincronizar o nome
+            if ($profile->save() && $user->save()) {
+                Yii::$app->session->setFlash('success', 'Perfil atualizado com sucesso!');
+                return $this->redirect(['perfil/profile']);
+            }
+        }
+
+        return $this->render('update', [
+            'profile' => $profile,
+            'user' => $user,
+        ]);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Userprofile::findOne($id)) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested user does not exist.');
     }
 }

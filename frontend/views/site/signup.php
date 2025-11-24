@@ -27,6 +27,8 @@ $this->title = 'Signup';
 
                 <?= $form->field($model, 'email') ?>
 
+                <?= $form->field($model, 'localizacao') //usar dropdown com localizacoes da api? ?> 
+
                 <?= $form->field($model, 'password')->passwordInput() ?>
 
                 <div class="form-group">

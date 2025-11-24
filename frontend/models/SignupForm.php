@@ -18,6 +18,7 @@ class SignupForm extends Model
     public $password;
     public $nome;
     public $contacto;
+    public $localizacao;
 
 
     /**
@@ -41,6 +42,7 @@ class SignupForm extends Model
             ['password', 'string', 'min' => Yii::$app->params['user.passwordMinLength']],
 
             ['contacto', 'required'],
+            ['localizacao', 'required'],
 
             ['nome', 'trim'],
             ['nome', 'required'],
@@ -71,6 +73,7 @@ class SignupForm extends Model
             $userprofile->user_id = $user->id;
             $userprofile->nome = $this->nome;
             $userprofile->contacto = $this->contacto;
+            $userprofile->localizacao = $this->localizacao;
             $userprofile->fotoperfil = null;
             $userprofile->contabloqueda = 0;
             $userprofile->dataregisto = date('Y-m-d H:i:s');

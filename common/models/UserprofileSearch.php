@@ -4,12 +4,12 @@ namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Userprofile;
+use common\models\UserProfile;
 
 /**
- * UserprofileSearch represents the model behind the search form of `backend\models\Userprofile`.
+ * UserProfileSearch represents the model behind the search form of `common\models\UserProfile`.
  */
-class UserprofileSearch extends Userprofile
+class UserProfileSearch extends UserProfile
 {
     /**
      * {@inheritdoc}
@@ -18,7 +18,7 @@ class UserprofileSearch extends Userprofile
     {
         return [
             [['id', 'contacto', 'contabloqueda', 'user_id'], 'integer'],
-            [['nome', 'fotoperfil', 'dataregisto'], 'safe'],
+            [['nome', 'localizacao', 'fotoperfil', 'dataregisto'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class UserprofileSearch extends Userprofile
      */
     public function search($params, $formName = null)
     {
-        $query = Userprofile::find();
+        $query = UserProfile::find();
 
         // add conditions that should always apply here
 
@@ -67,6 +67,7 @@ class UserprofileSearch extends Userprofile
         ]);
 
         $query->andFilterWhere(['like', 'nome', $this->nome])
+            ->andFilterWhere(['like', 'localizacao', $this->localizacao])
             ->andFilterWhere(['like', 'fotoperfil', $this->fotoperfil]);
 
         return $dataProvider;
