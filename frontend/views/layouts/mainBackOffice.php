@@ -52,9 +52,11 @@ use yii\helpers\Url;
                 <p>Anunciante Premium</p>
             </div>
         </div>
-        <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['imovel/create'], [
+        <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/index'], ['class' => 'new-listing-btn']) ?>
+
+        <!-- <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/index'], [
             'class' => 'new-listing-btn'
-        ]) ?>
+        ]) ?> -->
     </div>
 
     <div class="menu">

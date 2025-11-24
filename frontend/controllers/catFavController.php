@@ -19,7 +19,7 @@ use frontend\models\ContactForm;
 /**
  * Site controller
  */
-class AnunciosController extends Controller
+class catFavController extends Controller
 {
     /**
      * {@inheritdoc}

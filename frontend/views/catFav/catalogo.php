@@ -24,7 +24,7 @@ $this->title = 'Find4U - Catálogo';
         </li>
       </ul>
       <div class="row properties-box">
-         <a href="<?= Url::to(['/anuncios/detalhes'])?>">
+         <a href="<?= Url::to(['catFav/detalhes'])?>">
         <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
           <div class="item">
             <img src="../../web/template/img/property-01.jpg" alt="propriedade1">
@@ -39,7 +39,7 @@ $this->title = 'Find4U - Catálogo';
               <li>Parking: <span>6 spots</span></li>
             </ul>
             <!-- <div class="main-button">
-              <a href="<?= Url::to(['/anuncios/detalhes'])?>"> Marcar Visita</a>  
+              <a href="<?= Url::to(['catFav/detalhes'])?>"> Marcar Visita</a>  
             </div> -->
           </div>
           </a>  

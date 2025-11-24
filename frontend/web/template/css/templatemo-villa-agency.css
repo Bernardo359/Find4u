@@ -1197,11 +1197,11 @@ Properties Style
 }
 
 .properties .item span.category {
-  background-color: #fbd9cf;
+  background-color: #283539;
   font-weight: 500;
   border-radius: 5px;
   font-size: 14px;
-  color: #1e1e1e;
+  color: #B49D7E;
   padding: 5px 12px;
   display: inline-block;
   margin-top: 25px;
@@ -1534,7 +1534,7 @@ Single Page Style
 }
 
 .single-property .main-content span.category {
-  background-color: #fbd9cf;
+  background-color: #e9f3ff;
   font-weight: 500;
   border-radius: 5px;
   font-size: 14px;
