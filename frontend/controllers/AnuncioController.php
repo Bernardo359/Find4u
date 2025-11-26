@@ -2,6 +2,7 @@
 
 namespace frontend\controllers;
 
+use frontend\models\AnuncioForm;
 use common\models\Anuncio;
 use common\models\AnuncioSearch;
 use yii\web\Controller;
@@ -69,36 +70,19 @@ class AnuncioController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Anuncio();
+        $model = new AnuncioForm();
 
-        $model->userprofileid = Yii::$app->user->identity->profile->id;
-
-        // Define estado automático
-        $model->estadoanuncioid = Anuncio::ESTADO_ATIVO;
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-        return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-
-        //data publicação e expiração 
-        $model->datapublicacao = date('Y-m-d H:i:s'); // data agora
-        $model->dataexpiracao = date('Y-m-d H:i:s', strtotime('+3 months')); // +3 meses
-
-
-
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
+        if ($model->load(Yii::$app->request->post()) && $model->createAnuncio()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
     }
+
+
+
 
     /**
      * Updates an existing Anuncio model.
@@ -109,16 +93,20 @@ class AnuncioController extends Controller
      */
     public function actionUpdate($id)
     {
-        $model = $this->findModel($id);
+        $anuncio = $this->findModel($id);
+        $model = new AnuncioForm();
+        $model->loadFromModel($anuncio); // preenche os dados existentes no form
 
-        if ($this->request->isPost && $model->load($this->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post()) && $model->updateAnuncio($anuncio)) {
+            return $this->redirect(['view', 'id' => $anuncio->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+
+
 
     /**
      * Deletes an existing Anuncio model.

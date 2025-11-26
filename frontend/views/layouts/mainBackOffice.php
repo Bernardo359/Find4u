@@ -52,16 +52,16 @@ use yii\helpers\Url;
                 <p>Anunciante Premium</p>
             </div>
         </div>
-        <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/index'], ['class' => 'new-listing-btn']) ?>
+        <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/create'], ['class' => 'new-listing-btn']) ?>
 
-        <!-- <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/index'], [
-            'class' => 'new-listing-btn'
-        ]) ?> -->
     </div>
 
     <div class="menu">
         <div class="menu-section">
             <div class="menu-label">Gestão</div>
+            <?= Html::a('<i class="fas fa-users"></i><span>Os Meus Imóveis</span>', ['anuncio/index'], [
+                'class' => 'menu-item'
+            ]) ?>
             <?= Html::a('<i class="fas fa-chart-line"></i><span>Dashboard</span>', ['backoffice/index'], [
                 'class' => 'menu-item'
             ]) ?>
@@ -72,9 +72,6 @@ use yii\helpers\Url;
                 'class' => 'menu-item'
             ]) ?>
             <?= Html::a('<i class="fas fa-calendar-alt"></i><span>Agendamentos</span><span class="badge">2</span>', ['backoffice/agendamentos'], [
-                'class' => 'menu-item'
-            ]) ?>
-            <?= Html::a('<i class="fas fa-users"></i><span>Os Meus Imóveis</span>', ['imovel/index'], [
                 'class' => 'menu-item'
             ]) ?>
             <?= Html::a('<i class="fas fa-comments"></i><span>Mensagens</span><span class="badge">5</span>', ['backoffice/mensagens'], [

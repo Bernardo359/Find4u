@@ -11,7 +11,6 @@ use yii\grid\GridView;
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Anuncios';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="anuncio-index">
 
@@ -29,14 +28,14 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'titulo',
             'descricao',
             'preco',
             'tipologia',
             //'area',
             //'caracteristicasadicionais',
-            //'datapublicacao',
+            'datapublicacao',
             //'dataexpiracao',
             //'userprofileid',
             //'categoriaid',

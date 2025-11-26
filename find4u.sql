@@ -295,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `favorito` (
 DROP TABLE IF EXISTS `foto`;
 CREATE TABLE IF NOT EXISTS `foto` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nomefoto` varchar(45) NOT NULL,
+  `nomefoto` varchar(200) NOT NULL,
   `ordem` int DEFAULT NULL,
   `anuncioid` int NOT NULL,
   PRIMARY KEY (`id`),

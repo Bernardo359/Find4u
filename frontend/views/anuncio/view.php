@@ -34,7 +34,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'descricao',
             'preco',
             'tipologia',
-            'area',
+            'area', 
             'caracteristicasadicionais',
             'datapublicacao',
             'dataexpiracao',
