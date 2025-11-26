@@ -28,6 +28,7 @@ class AppAsset extends AssetBundle
         'template/js/counter.js',
         'template/js/custom.js',
         'template/js/bootstrap.min.js',
+        'template/js/about.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
