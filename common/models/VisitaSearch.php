@@ -1,13 +1,13 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Visita;
+use common\models\Visita;
 
 /**
- * VisitaSearch represents the model behind the search form of `backend\models\Visita`.
+ * VisitaSearch represents the model behind the search form of `common\models\Visita`.
  */
 class VisitaSearch extends Visita
 {

@@ -28,90 +28,97 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
 </head>
 
 <body class="d-flex flex-column h-100">
-    <?php $this->beginBody()?>
+    <?php $this->beginBody() ?>
 
-    <?php if(!$isBackoffice): ?>
+    <?php if (!$isBackoffice): ?>
 
-    <!-- ***** Header Area Start Comprador ***** -->
-    <header class="header-area header-sticky">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="nav-logo">
-                            <img src="<?= Yii::getAlias('@web') ?>/img/Find4ULogo.png" alt="Logo">
-                        </a>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li><a href="<?= Url::to(['/site/index']) ?>">Home</a></li>
-                            <li><a href="<?= Url::to(['/catalogo/catalogo']) ?>">Imóveis</a></li>
-                            <?php
-                            if (Yii::$app->user->can('anunciante')){ ?>
-                                <li class="btnVisit">
-                                    <a href="<?= Url::to(['/backoffice/index']) ?>">
-                                        <i class="fa fa-chart-line"></i> Meus Anuncios
-                                    </a>
-                                </li>
-                            <?php } else
-                                echo '<li class="btnVisit"><a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a></li>';?>
-                                <?php
-                            if (!Yii::$app->user->isGuest){ ?>
-                                <li class="btnFa">
-                                    <a href="<?= Url::to(['/anuncios/favoritos']) ?>">
-                                        <i class="fa fa-heart"></i>
-                                    </a>
-                                </li>
-                            <?php } ?>
-                            <div class="user-info">
-                                <?php if (Yii::$app->user->isGuest): ?>
-                                    <li class="btnFa">
-                                        <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="d-flex align-items-center">
-                                            <i class="fa fa-user me-1"></i> Login
+        <!-- ***** Header Area Start Comprador ***** -->
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="main-nav">
+                            <!-- ***** Logo Start ***** -->
+                            <a href="<?= \yii\helpers\Url::to(['site/index']) ?>" class="nav-logo">
+                                <img src="<?= Yii::getAlias('@web') ?>/img/Find4ULogo.png" alt="Logo">
+                            </a>
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <li><a href="<?= Url::to(['/site/index']) ?>">Home</a></li>
+                                <li><a href="<?= Url::to(['/catalogo/catalogo']) ?>">Imóveis</a></li>
+                                <?php if (Yii::$app->user->can('anunciante')): ?>
+                                    <li class="btnVisit">
+                                        <a href="<?= Url::to(['/backoffice/index']) ?>">
+                                            <i class="fa fa-chart-line"></i> Meus Anuncios
                                         </a>
                                     </li>
                                 <?php else: ?>
-                                    <li class="btnFa">
-                                        <a href="<?= \yii\helpers\Url::to(['/perfil/profile']) ?>" class="d-flex align-items-center text-decoration-none">
-                                            <i class="fa fa-user me-1"></i>
-                                            <span><?= Yii::$app->user->identity->username ?></span>
+                                    <?php
+                                if (!Yii::$app->user->isGuest) { ?>
+                                    <li class="btnVisit">
+                                        <a href="<?= Url::to(['/visita/index']) ?>">
+                                            <i class="fa fa-calendar"></i> Minha Visitas
                                         </a>
+                                    </li>
+                                <?php } ?>
+                                <?php endif; ?>
+                                <?php
+                                if (!Yii::$app->user->isGuest) { ?>
+                                    <li class="btnFa">
+                                        <a href="<?= Url::to(['/catalogo/favoritos']) ?>">
+                                            <i class="fa fa-heart"></i>
+                                        </a>
+                                    </li>
+                                <?php } ?>
+                                <div class="user-info">
+                                    <?php if (Yii::$app->user->isGuest): ?>
+                                        <li class="btnFa">
+                                            <a href="<?= \yii\helpers\Url::to(['/site/login']) ?>" class="d-flex align-items-center">
+                                                <i class="fa fa-user me-1"></i> Login
+                                            </a>
+                                        </li>
+                                    <?php else: ?>
+                                        <li class="btnFa">
+                                            <a href="<?= \yii\helpers\Url::to(['/perfil/profile']) ?>" class="d-flex align-items-center text-decoration-none">
+                                                <i class="fa fa-user me-1"></i>
+                                                <span><?= Yii::$app->user->identity->username ?></span>
+                                            </a>
+                                        </li>
+                                    <?php endif; ?>
+
+
+                                </div>
+
+                                <?php if (!Yii::$app->user->isGuest): ?>
+                                    <li class="btnFa" style="color: white; text-decoration: none;">
+                                        <?= Html::beginForm(['/site/logout'], 'post', [
+                                            'class' => 'm-0 p-0',
+                                            'style' => 'display:inline;'
+                                        ]) ?>
+                                        <button type="submit"
+                                            class="btn btn-link p-0 m-0"
+                                            style="color: inherit; font-size: inherit; line-height: 1;">
+                                            <i class="fa fa-right-to-bracket"></i>
+                                        </button>
+                                        <?= Html::endForm() ?>
                                     </li>
                                 <?php endif; ?>
 
 
-                            </div>
+                                <!--<li class="btnFa"><a href="#"><i class="fa fa-right-to-bracket"></i></a></li>-->
 
-                            <?php if (!Yii::$app->user->isGuest): ?>
-                                <li class="btnFa" style="color: white; text-decoration: none;">
-                                    <?= Html::beginForm(['/site/logout'], 'post', [
-                                        'class' => 'm-0 p-0',
-                                        'style' => 'display:inline;'
-                                    ]) ?>
-                                    <button type="submit"
-                                        class="btn btn-link p-0 m-0"
-                                        style="color: inherit; font-size: inherit; line-height: 1;">
-                                        <i class="fa fa-right-to-bracket"></i>
-                                    </button>
-                                    <?= Html::endForm() ?>
-                                </li>
-                            <?php endif; ?>
-
-
-                            <!--<li class="btnFa"><a href="#"><i class="fa fa-right-to-bracket"></i></a></li>-->
-
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
+                            </ul>
+                            <a class='menu-trigger'>
+                                <span>Menu</span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <?php endif;?>
+        </header>
+    <?php endif; ?>
     <!-- ***** Header Area End Comprador***** -->
 
     <main role="main" class="flex-shrink-0">
@@ -121,17 +128,17 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
         ]) ?>
         <?= Alert::widget() ?>
         <?= $content ?>
-        
+
 
     </main>
 
-    <?php if(!$isBackoffice): ?>
-    <footer class="footer mt-auto py-3 text-muted" style="background-color: black; color: white;">
-        <div class="container">
-            <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
-            <p class="float-end"><?= Yii::powered() ?></p>
-        </div>
-    </footer>
+    <?php if (!$isBackoffice): ?>
+        <footer class="footer mt-auto py-3 text-muted" style="background-color: black; color: white;">
+            <div class="container">
+                <p class="float-start">&copy; <?= Html::encode(Yii::$app->name) ?> <?= date('Y') ?></p>
+                <p class="float-end"><?= Yii::powered() ?></p>
+            </div>
+        </footer>
     <?php endif; ?>
 
     <?php $this->endBody() ?>

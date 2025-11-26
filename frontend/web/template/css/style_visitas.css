@@ -1,0 +1,296 @@
+header {
+    color: white;
+    padding: 30px;
+    text-align: center;
+    margin-bottom: 20px !important;
+}
+
+header h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.filters {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    border-bottom: 2px solid #e9ecef;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filter-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #495057;
+}
+
+select,
+input[type="text"],
+input[type="date"] {
+    padding: 10px 15px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    min-width: 180px;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.visits-list {
+    padding: 30px;
+}
+
+.visit-card {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 20px;
+    transition: all 0.3s;
+    position: relative;
+}
+
+.visit-card:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.property-image {
+    width: 180px;
+    height: 140px;
+    border-radius: 12px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.visit-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.visit-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 5px;
+}
+
+.visit-location {
+    color: #6c757d;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.visit-datetime {
+    color: #495057;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.visit-owner {
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-top: 8px;
+    width: fit-content;
+}
+
+.status-confirmada {
+    background: #d4edda;
+    color: #155724;
+}
+
+.status-pendente {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.status-alterada {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+.status-cancelada {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.status-rejeitada {
+    background: #f5c6cb;
+    color: #721c24;
+}
+
+.visit-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-primary {
+    background: #667eea;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+.btn-secondary {
+    background: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #5a6268;
+}
+
+.btn-danger {
+    background: #dc3545;
+    color: white;
+}
+
+.btn-danger:hover {
+    background: #c82333;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.modal-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #212529;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #495057;
+}
+
+.form-group input {
+    width: 100%;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 25px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #6c757d;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .visit-card {
+        flex-direction: column;
+    }
+
+    .property-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    select,
+    input {
+        min-width: 100%;
+    }
+}
