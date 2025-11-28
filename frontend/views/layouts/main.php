@@ -134,16 +134,16 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
 
     <?php if (!$isBackoffice): ?>
         <footer class="footer mt-auto py-3 text-muted" style="background-color: black; color: white;">
-            <div class="container">
-                <a href="#">Página Principal</a>
-                <a href="<?= Url::to(['/site/about']) ?>">Sobre Nós</a>
-                <a href="<?= Url::to(['/catalogo/catalogo']) ?>">Catálogo</a>
-                <a href="<?= Url::to(['/catalogo/favoritos']) ?>">Favoritos</a>
-                <a href="<?= Url::to(['/backoffice/index']) ?>">Os Meus Anúncios</a>
-                <a href="<?= Url::to(['/perfil/profile']) ?>">Perfil</a>
-                <a href="<?= Url::to(['/visita/index']) ?>">As Minhas Visitas</a>
-                <p class="float-start">&copy; Find4U <?= date('Y') ?></p>
-            </div>
+                <div class="container">
+                    <a href="#">Página Principal</a>
+                    <a href="<?= Url::to(['/site/about']) ?>">Sobre Nós</a>
+                    <a href="<?= Url::to(['/catalogo/catalogo']) ?>">Catálogo</a>
+                    <a href="<?= Url::to(['/catalogo/favoritos']) ?>">Favoritos</a>
+                    <a href="<?= Url::to(['/backoffice/index']) ?>">Os Meus Anúncios</a>
+                    <a href="<?= Url::to(['/perfil/profile']) ?>">Perfil</a>
+                    <a href="<?= Url::to(['/visita/index']) ?>">As Minhas Visitas</a>
+                    <p class="float-start">&copy; Find4U <?= date('Y') ?></p>
+                </div>
         </footer>
     <?php endif; ?>
 
