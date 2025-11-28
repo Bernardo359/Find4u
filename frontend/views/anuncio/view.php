@@ -7,8 +7,6 @@ use yii\widgets\DetailView;
 /** @var common\models\Anuncio $model */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Anuncios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
 <div class="anuncio-view">
@@ -34,7 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'descricao',
             'preco',
             'tipologia',
-            'area',
+            'area', 
             'caracteristicasadicionais',
             'datapublicacao',
             'dataexpiracao',

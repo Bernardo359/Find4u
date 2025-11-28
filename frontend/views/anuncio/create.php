@@ -3,18 +3,16 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var common\models\Anuncio $model */
+/** @var frontend\models\AnuncioForm $model */
 
-$this->title = 'Create Anuncio';
-$this->params['breadcrumbs'][] = ['label' => 'Anuncios', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
+$this->title = 'Criar Anúncio';
 ?>
-<div class="anuncio-create">
+<div class="anuncio-create max-w-3xl mx-auto">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, // agora passa o AnuncioForm
     ]) ?>
 
 </div>
