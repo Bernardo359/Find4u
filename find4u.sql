@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.3
+-- version 5.2.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 10-Nov-2025 às 15:34
--- Versão do servidor: 8.4.6
--- versão do PHP: 8.3.14
+-- Tempo de geração: 28-Nov-2025 às 16:44
+-- Versão do servidor: 8.0.31
+-- versão do PHP: 8.4.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,7 +47,22 @@ CREATE TABLE IF NOT EXISTS `anuncio` (
   KEY `idx_categoria` (`categoriaid`),
   KEY `idx_localizacao` (`localizacaoid`),
   KEY `idx_estadoanuncio` (`estadoanuncioid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `anuncio`
+--
+
+INSERT INTO `anuncio` (`id`, `titulo`, `descricao`, `preco`, `tipologia`, `area`, `caracteristicasadicionais`, `datapublicacao`, `dataexpiracao`, `userprofileid`, `categoriaid`, `localizacaoid`, `estadoanuncioid`) VALUES
+(2, 'HOUSE', 'big house', 20000, 'T4', 500, 'bonito', '2025-11-24 21:31:08', '2026-02-24 21:31:08', 5, 1, 1, 2),
+(3, 'school', 'done', 20000, 'T3', 500, 'asda', '2025-11-25 14:03:24', '2026-02-25 14:03:24', 5, 2, 1, 1),
+(4, 'House', 'GOOD ', 222, 'T1', 22, 'asdasd', '2025-11-26 16:28:48', '2026-02-26 16:28:48', 5, 1, 21, 1),
+(5, 'tou farto', 'disto ', 22, 'T2', 44, 'sdasdad', '2025-11-26 16:29:55', '2026-02-26 16:29:55', 5, 1, 22, 1),
+(6, 'new', 'ookay', 33, 'T4', 456, 'aDAS', '2025-11-26 16:38:25', '2026-02-26 16:38:25', 5, 2, 23, 1),
+(7, 'IPL', 'Escola cansada', 250000, 'T50', 5000, 'Escola muito cansada ', '2025-11-26 23:19:12', '2026-02-26 23:19:12', 5, 2, 24, 1),
+(8, 'House1234', 'GOOD ', 222, 'T7', 444, 'asdasd', '2025-11-27 11:07:03', '2026-02-27 11:07:03', 5, 2, 25, 1),
+(9, 'Teste FOto', 'NEw Photos', 1234, 'T1', 45, 'I think it worked ', '2025-11-28 11:33:13', '2026-02-28 11:33:13', 6, 1, 26, 1),
+(10, 'shit', 'dome', 200, 'T4', 44, 'sdsa', '2025-11-28 16:38:07', '2026-02-28 16:38:07', 5, 1, 27, 1);
 
 -- --------------------------------------------------------
 
@@ -57,8 +72,8 @@ CREATE TABLE IF NOT EXISTS `anuncio` (
 
 DROP TABLE IF EXISTS `auth_assignment`;
 CREATE TABLE IF NOT EXISTS `auth_assignment` (
-  `item_name` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `user_id` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `item_name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `user_id` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `created_at` int DEFAULT NULL,
   PRIMARY KEY (`item_name`,`user_id`),
   KEY `idx-auth_assignment-user_id` (`user_id`)
@@ -71,6 +86,8 @@ CREATE TABLE IF NOT EXISTS `auth_assignment` (
 INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 ('admin', '31', 1762713319),
 ('anunciante', '30', 1762627912),
+('anunciante', '32', 1764339843),
+('anunciante', '33', 1764242357),
 ('comprador', '29', 1762627031);
 
 -- --------------------------------------------------------
@@ -81,10 +98,10 @@ INSERT INTO `auth_assignment` (`item_name`, `user_id`, `created_at`) VALUES
 
 DROP TABLE IF EXISTS `auth_item`;
 CREATE TABLE IF NOT EXISTS `auth_item` (
-  `name` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `type` smallint NOT NULL,
-  `description` text COLLATE utf8mb3_unicode_ci,
-  `rule_name` varchar(64) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `description` text CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci,
+  `rule_name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   `data` blob,
   `created_at` int DEFAULT NULL,
   `updated_at` int DEFAULT NULL,
@@ -143,8 +160,8 @@ INSERT INTO `auth_item` (`name`, `type`, `description`, `rule_name`, `data`, `cr
 
 DROP TABLE IF EXISTS `auth_item_child`;
 CREATE TABLE IF NOT EXISTS `auth_item_child` (
-  `parent` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `child` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `parent` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `child` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   PRIMARY KEY (`parent`,`child`),
   KEY `child` (`child`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
@@ -197,7 +214,7 @@ INSERT INTO `auth_item_child` (`parent`, `child`) VALUES
 
 DROP TABLE IF EXISTS `auth_rule`;
 CREATE TABLE IF NOT EXISTS `auth_rule` (
-  `name` varchar(64) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `name` varchar(64) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `data` blob,
   `created_at` int DEFAULT NULL,
   `updated_at` int DEFAULT NULL,
@@ -216,7 +233,15 @@ CREATE TABLE IF NOT EXISTS `categoria` (
   `nome` varchar(45) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id`, `nome`, `descricao`) VALUES
+(1, 'Apartamento', 'idk '),
+(2, 'moradia', 'idek');
 
 -- --------------------------------------------------------
 
@@ -268,7 +293,16 @@ CREATE TABLE IF NOT EXISTS `estadoanuncio` (
   `estado` varchar(45) NOT NULL,
   `descricao` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `estadoanuncio`
+--
+
+INSERT INTO `estadoanuncio` (`id`, `estado`, `descricao`) VALUES
+(1, 'Ativo ', 'Anuncio criado e ativo '),
+(2, 'Desativado', 'Pausar ou desativar anuncio'),
+(3, 'Expirado', 'Anuncio expirou os 3 meses');
 
 -- --------------------------------------------------------
 
@@ -295,12 +329,26 @@ CREATE TABLE IF NOT EXISTS `favorito` (
 DROP TABLE IF EXISTS `foto`;
 CREATE TABLE IF NOT EXISTS `foto` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `nomefoto` varchar(200) NOT NULL,
+  `nomefoto` varchar(200) CHARACTER SET utf8mb3 COLLATE utf8mb3_general_ci NOT NULL,
   `ordem` int DEFAULT NULL,
   `anuncioid` int NOT NULL,
   PRIMARY KEY (`id`),
   KEY `idx_foto_anuncio` (`anuncioid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `foto`
+--
+
+INSERT INTO `foto` (`id`, `nomefoto`, `ordem`, `anuncioid`) VALUES
+(1, 'jCAASPfC9yXwMmjVeGqQkO2p37K-M0Dj.png', 1, 4),
+(2, 'xrHIt64HKv3qi-BKalziZe55axEtZlzk.png', 1, 5),
+(3, 'nDIbQfLreGiCwroMf8-96ncIbUdL4AW9.png', 1, 6),
+(4, 'rnrNhVHLtxTyPYoNi451j6DoBHYScb6t.png', 1, 2),
+(5, 'X29Jh0LQdUihepmmpBbCaTGZ_BTd2zbb.png', 1, 7),
+(6, '7NDQerV2zIH2dhdI2NbW_vnQNk-fXmEP.png', 1, 8),
+(7, '4yK6gPfmlZarK_rBbobwTLJz9hxqxna2.png', 1, 9),
+(8, '98sPx3p1NJQiXlOqSMJJEmXYyeBMGRkm.png', 1, 10);
 
 -- --------------------------------------------------------
 
@@ -320,7 +368,24 @@ CREATE TABLE IF NOT EXISTS `localizacao` (
   `transportes` tinyint NOT NULL,
   `supermercados` tinyint NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb3;
+
+--
+-- Extraindo dados da tabela `localizacao`
+--
+
+INSERT INTO `localizacao` (`id`, `distrito`, `concelho`, `freguesia`, `moradacompleta`, `porta`, `escolas`, `transportes`, `supermercados`) VALUES
+(1, 'Leiria', 'Leiria', 'Monte Real', 'Rua 123 do abc', 12, 1, 2, 3),
+(2, 'Leiria', 'Leiria', 'Leiria', 'RUA DE LEIRIA', 1221, 2, 1, 3),
+(19, 'Leiria', 'Leiria', 'Leiria', 'RUA DE LEIRIA', 2, 2, 2, 2),
+(20, 'Leiria', 'Leiria', 'Leiria', 'RUA DE LEIRIA', 2, 2, 1, 3),
+(21, 'Leiria', 'Leiria', 'Leiria', 'RUA DE LEIRIA', 2, 2, 1, 3),
+(22, 'Leiria', 'Leiria', 'monte ', 'RUA Do monte', 2, 2, 3, 3),
+(23, 'Aveiro', 'Avei', 'AV', 'Rua de aveiro', 44, 2, 1, 0),
+(24, 'Leiria', 'Leiria', 'Leiria ', 'Rua dos estudantes ', 22, 1, 5, 1),
+(25, 'Leiria', 'Leiria', 'Monte Real', 'Rua 12344', 121, 2, 2, 1),
+(26, 'Lisbon', 'sintra', 'Sintra', 'Rua da serra', 45, 3, 0, 2),
+(27, 'Leiria', 'Avei', 'Sintra', 'RUA Do monte', 121, 10, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -390,20 +455,20 @@ CREATE TABLE IF NOT EXISTS `stats` (
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `auth_key` varchar(32) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `password_hash` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
-  `password_reset_token` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
-  `email` varchar(255) COLLATE utf8mb3_unicode_ci NOT NULL,
+  `username` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `auth_key` varchar(32) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `password_hash` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
+  `password_reset_token` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `email` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci NOT NULL,
   `status` smallint NOT NULL DEFAULT '10',
   `created_at` int NOT NULL,
   `updated_at` int NOT NULL,
-  `verification_token` varchar(255) COLLATE utf8mb3_unicode_ci DEFAULT NULL,
+  `verification_token` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `password_reset_token` (`password_reset_token`)
-) ENGINE=InnoDB AUTO_INCREMENT=32 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_unicode_ci;
 
 --
 -- Extraindo dados da tabela `user`
@@ -413,7 +478,9 @@ INSERT INTO `user` (`id`, `username`, `auth_key`, `password_hash`, `password_res
 (1, 'admin', 'test_auth_key_1234567890abcdef', '$2y$13$e0NRjU9sGcRjCYDhUTaHaex3Ck1ZfPOpHYYrWq4Q4eB6HXYAi/9XO', NULL, 'admin@example.com', 10, 1762462667, 1762462667, NULL),
 (29, 'teste1', 'holgi2LMvQKZVCVbVKNBAJVawgBePOP9', '$2y$13$ZhaRAHZHSUAHZvaT/DmWOupkbTbMfxYVdm2zzz/esexkzrn11wViO', NULL, 'teste1@teste1.com', 10, 1762627031, 1762627031, 'QCXt8pc4YHN3rW84rnkApaINutZ4mz2v_1762627031'),
 (30, 'mateus', 'OaPtng6cIeQl-9TtxUsaV_pwq_gMDe0h', '$2y$13$jsrjk7LDF1a09gGR.166cewsVUnDbDzt6TKudjrKBzNw.fxortqju', NULL, 'mateusdrodrigues05@gmail.com', 10, 1762627912, 1762627912, '1r2c12xu18x_KUM3OQTmraKnHJcc_DfN_1762627912'),
-(31, 'admin2', 'EU72OQ-Ml3Ent-A54qVdGw7QbYhY4Cp_', '$2y$13$5xkYZwjC3omIMi0RA1JE9uluU1QRB5jpj2IhgK6HZTtVo7rM.LY1q', NULL, 'admin2@admin2.com', 10, 1762713318, 1762713318, 'uflv6KrtA_U1zzkUOHnFZSHHZIlHXH04_1762713318');
+(31, 'admin2', 'EU72OQ-Ml3Ent-A54qVdGw7QbYhY4Cp_', '$2y$13$5xkYZwjC3omIMi0RA1JE9uluU1QRB5jpj2IhgK6HZTtVo7rM.LY1q', NULL, 'admin2@admin2.com', 10, 1762713318, 1762713318, 'uflv6KrtA_U1zzkUOHnFZSHHZIlHXH04_1762713318'),
+(32, 'duarte1234', 'A4RU3ebK4k_1b7rJozC_IZRXOiVQAnZn', '$2y$13$VYy6bmyX.HuOYmRoZGFPfuzVPg.N6jiVBwk86vX3TGjMaafLISN/W', NULL, 'duarte12345@gmail.com', 10, 1762869235, 1764339843, 'LogWzSCsaBBH5X40UY0nZvllCJgZDlbr_1762869235'),
+(33, 'durtas', 'jor_gwFsD1k2F0Llocn1_fRb0AEMxeTJ', '$2y$13$rWOQScvrrKhPldp4LjFozO2zYKaXrRN3uuRJrRMunVuB5BezTqngm', NULL, 'durtas@mail.pt', 10, 1764242338, 1764242357, 'tH1-vrnAjvFVO7KH2OJsbsRZnhGh5uOu_1764242338');
 
 -- --------------------------------------------------------
 
@@ -430,19 +497,41 @@ CREATE TABLE IF NOT EXISTS `userprofile` (
   `contabloqueda` tinyint(1) NOT NULL,
   `dataregisto` datetime NOT NULL,
   `user_id` int NOT NULL,
+  `localizacao` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_userprofile_user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb3;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb3;
 
 --
 -- Extraindo dados da tabela `userprofile`
 --
 
-INSERT INTO `userprofile` (`id`, `nome`, `contacto`, `fotoperfil`, `contabloqueda`, `dataregisto`, `user_id`) VALUES
-(1, 'admin', 123456789, NULL, 0, '0000-00-00 00:00:00', 1),
-(2, 'teste1', 123456789, NULL, 0, '2025-11-08 18:37:11', 29),
-(3, 'mateus', 123456789, NULL, 0, '2025-11-08 18:51:52', 30),
-(4, 'admin2', 123456789, NULL, 0, '2025-11-09 18:35:19', 31);
+INSERT INTO `userprofile` (`id`, `nome`, `contacto`, `fotoperfil`, `contabloqueda`, `dataregisto`, `user_id`, `localizacao`) VALUES
+(1, 'admin', 123456789, NULL, 0, '0000-00-00 00:00:00', 1, NULL),
+(2, 'teste1', 123456789, NULL, 0, '2025-11-08 18:37:11', 29, NULL),
+(3, 'mateus', 123456789, NULL, 0, '2025-11-08 18:51:52', 30, NULL),
+(4, 'admin2', 123456789, NULL, 0, '2025-11-09 18:35:19', 31, NULL),
+(5, 'duarte', 925060152, NULL, 0, '2025-11-11 13:53:55', 32, NULL),
+(6, 'Duarte', 123456789, NULL, 0, '2025-11-27 11:18:58', 33, 'Monte Real');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `utilizador`
+--
+
+DROP TABLE IF EXISTS `utilizador`;
+CREATE TABLE IF NOT EXISTS `utilizador` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(45) NOT NULL,
+  `email` varchar(55) NOT NULL,
+  `password` varchar(45) NOT NULL,
+  `contacto` int NOT NULL,
+  `fotoperfil` varchar(45) NOT NULL,
+  `contabloqueda` tinyint NOT NULL,
+  `dataregisto` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- --------------------------------------------------------
 

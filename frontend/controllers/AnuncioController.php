@@ -16,6 +16,8 @@ use Yii;
  */
 class AnuncioController extends Controller
 {
+    
+    public $layout = 'mainBackOffice';
     /**
      * @inheritDoc
      */
@@ -70,6 +72,7 @@ class AnuncioController extends Controller
      */
     public function actionCreate()
     {
+        
         $model = new AnuncioForm();
 
         if ($model->load(Yii::$app->request->post()) && $model->createAnuncio()) {
@@ -93,6 +96,7 @@ class AnuncioController extends Controller
      */
     public function actionUpdate($id)
     {
+        
         $anuncio = $this->findModel($id);
         $model = new AnuncioForm();
         $model->loadFromModel($anuncio); // preenche os dados existentes no form
@@ -117,6 +121,7 @@ class AnuncioController extends Controller
      */
     public function actionDelete($id)
     {
+        
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);

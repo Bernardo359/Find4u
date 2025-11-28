@@ -8,7 +8,7 @@ use frontend\assets\BackofficeAsset;
 use yii\bootstrap5\Html;
 use yii\helpers\Url;
 
-// BackofficeAsset::register($this);
+BackofficeAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
@@ -21,10 +21,10 @@ use yii\helpers\Url;
     <title><?= Html::encode($this->title) ?></title>
     
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="<?= Yii::$app->request->baseUrl ?>/templateBack/css/backoffice.css">
-    <script src="<?= Yii::$app->request->baseUrl ?>/templateBack/js/backoffice.js"></script>
+    <script src="<?= Yii::$app->request->baseUrl ?>/templateBack/js/backoffice.js"></script> -->
     
     <?php $this->head() ?>
 </head>
@@ -52,29 +52,28 @@ use yii\helpers\Url;
                 <p>Anunciante Premium</p>
             </div>
         </div>
-        <?= Html::a('<i class="fas fa-plus"></i> Novo Anúncio', ['anuncio/create'], ['class' => 'new-listing-btn']) ?>
-
+        <?= Html::a('<i class="fas fa-plus"></i> <span>Novo Anúncio</span>', ['anuncio/create'], ['class' => 'new-listing-btn']) ?>
     </div>
 
     <div class="menu">
         <div class="menu-section">
             <div class="menu-label">Gestão</div>
-            <?= Html::a('<i class="fas fa-users"></i><span>Os Meus Imóveis</span>', ['anuncio/index'], [
+            <?= Html::a('<i class="fas fa-users"></i>Os Meus Imóveis', ['anuncio/index'], [
                 'class' => 'menu-item'
             ]) ?>
-            <?= Html::a('<i class="fas fa-chart-line"></i><span>Dashboard</span>', ['backoffice/index'], [
+            <?= Html::a('<i class="fas fa-chart-line"></i>Dashboard', ['backoffice/index'], [
                 'class' => 'menu-item'
             ]) ?>
-            <?= Html::a('<i class="fas fa-chart-line"></i><span>Estatísticas</span>', ['backoffice/estatisticas'], [
+            <?= Html::a('<i class="fas fa-chart-line"></i>Estatísticas', ['backoffice/estatisticas'], [
                 'class' => 'menu-item'
             ]) ?>
-            <?= Html::a('<i class="fas fa-chart-line"></i><span>Leads</span>', ['backoffice/leads'], [
+            <?= Html::a('<i class="fas fa-chart-line"></i>Leads', ['backoffice/leads'], [
                 'class' => 'menu-item'
             ]) ?>
-            <?= Html::a('<i class="fas fa-calendar-alt"></i><span>Agendamentos</span><span class="badge">2</span>', ['backoffice/agendamentos'], [
+            <?= Html::a('<i class="fas fa-calendar-alt"></i>Agendamentos<span class="badge">2</span>', ['backoffice/agendamentos'], [
                 'class' => 'menu-item'
             ]) ?>
-            <?= Html::a('<i class="fas fa-comments"></i><span>Mensagens</span><span class="badge">5</span>', ['backoffice/mensagens'], [
+            <?= Html::a('<i class="fas fa-comments"></i>Mensagens<span class="badge">5</span>', ['backoffice/mensagens'], [
                 'class' => 'menu-item'
             ]) ?>
         </div>

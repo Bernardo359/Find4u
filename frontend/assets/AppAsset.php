@@ -13,7 +13,6 @@ class AppAsset extends AssetBundle
         // Bootstrap NÃO colocar aqui (já vem do Yii)
         'template/css/fontawesome.css',
         'template/css/templatemo-villa-agency.css',
-        'template/css/form-anuncio.css',
         'template/css/owl.css',
         'template/css/animate.css',
         'template/css/site.css',
@@ -24,13 +23,6 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
-        // ⚠️ NUNCA carregar jQuery manualmente
-        // 'template/vendor/jquery/jquery.min.js',  // REMOVE
-
-        //⚠️ Bootstrp também NÃO colocar aqui (já vem do Yii)
-        // 'template/vendor/bootstrap/js/bootstrap.bundle.min.js', // REMOVE
-
-        'template/js/anuncio-form.js',
         'template/js/isotope.min.js',
         'template/js/owl-carousel.js',
         'template/js/counter.js',

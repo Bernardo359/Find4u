@@ -18,6 +18,20 @@ use common\models\Categoria;
             'options' => ['enctype' => 'multipart/form-data']
         ]); ?>
 
+        <!-- Upload de Fotos -->
+        <div class="row mb-3">
+            <div class="col-md-12">
+
+                <?= $form->field($model, 'imageFiles[]')->fileInput([
+                    'multiple' => true,
+                    'accept'   => 'image/*',
+                    'id'       => 'image-upload'
+                ])->label('Fotos do Imóvel') ?>
+
+                <div id="preview-images" class="d-flex flex-wrap mt-2"></div>
+            </div>
+        </div>
+
         <!-- Título e Descrição -->
         <div class="row mb-3">
             <div class="col-md-6">
@@ -70,20 +84,6 @@ use common\models\Categoria;
         <div class="row mb-3">
             <div class="col-md-12">
                 <?= $form->field($model, 'caracteristicasadicionais')->textarea(['rows' => 3, 'placeholder' => 'Características adicionais']) ?>
-            </div>
-        </div>
-
-        <!-- Upload de Fotos -->
-        <div class="row mb-3">
-            <div class="col-md-12">
-
-                <?= $form->field($model, 'imageFiles[]')->fileInput([
-                    'multiple' => true,
-                    'accept'   => 'image/*',
-                    'id'       => 'image-upload'
-                ])->label('Fotos do Imóvel') ?>
-
-                <div id="preview-images" class="d-flex flex-wrap mt-2"></div>
             </div>
         </div>
 
