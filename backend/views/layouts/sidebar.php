@@ -1,6 +1,9 @@
+<?php
+use yii\helpers\Url;
+?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="logo_sidebar">
+    <a href="<?= Url::to(['/site/index']) ?>" class="logo_sidebar">
         <img src="<?= Yii::getAlias('@web/img/logo.jpeg') ?>" alt="Find4u logo" style=" width: 100%">
     </a>
 
