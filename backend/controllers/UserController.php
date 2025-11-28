@@ -20,7 +20,6 @@ class UserController extends Controller
      */
     public function behaviors()
     {
-<<<<<<< HEAD
         return [
             'access' => [
                 'class' => AccessControl::class,
@@ -29,17 +28,6 @@ class UserController extends Controller
                     [
                         'allow' => true,
                         'roles' => ['admin'],
-=======
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'update' => ['PUT', 'POST', 'PATCH'],
-                        'create' => ['POST'],
-                        'delete' => ['DELETE'],
->>>>>>> 0e687d2ff90a883c728f0828f5afd6f75219bb49
                     ],
                 ],
                 'denyCallback' => function ($rule, $action) {

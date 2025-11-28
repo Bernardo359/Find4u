@@ -18,7 +18,7 @@ class UserController extends ActiveController
         $behaviors = parent::behaviors();
 
         // REMOVE autenticação obrigatória
-        unset($behaviors['authenticator']);
+        //unset($behaviors['authenticator']);
 
         return $behaviors;
     }

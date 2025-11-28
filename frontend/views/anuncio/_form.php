@@ -95,4 +95,3 @@ use common\models\Categoria;
         <?php ActiveForm::end(); ?>
     </div>
 </div>
-
