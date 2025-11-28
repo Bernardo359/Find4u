@@ -77,7 +77,7 @@ use common\models\Categoria;
         <div class="row mb-3">
             <div class="col-md-12">
 
-                <?= $form->field($model, 'imageFiles')->fileInput([
+                <?= $form->field($model, 'imageFiles[]')->fileInput([
                     'multiple' => true,
                     'accept'   => 'image/*',
                     'id'       => 'image-upload'
@@ -96,27 +96,3 @@ use common\models\Categoria;
     </div>
 </div>
 
-<?php
-$js = <<<JS
-document.getElementById('image-upload').addEventListener('change', function(event){
-    const preview = document.getElementById('preview-images');
-    preview.innerHTML = '';
-    for (let i = 0; i < this.files.length; i++) {
-        const file = this.files[i];
-        const reader = new FileReader();
-        reader.onload = function(e){
-            const img = document.createElement('img');
-            img.src = e.target.result;
-            img.style.width = '120px';
-            img.style.height = '120px';
-            img.style.objectFit = 'cover';
-            img.style.margin = '5px';
-            img.classList.add('img-thumbnail');
-            preview.appendChild(img);
-        };
-        reader.readAsDataURL(file);
-    }
-});
-JS;
-$this->registerJs($js);
-?>
