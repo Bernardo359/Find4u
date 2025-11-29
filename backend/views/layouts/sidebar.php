@@ -67,15 +67,16 @@ use yii\helpers\Url;
                     
                     
                    
-                    ['label' => 'Yii2 PROVIDED', 'header' => true],
+                    // ['label' => 'Yii2 PROVIDED', 'header' => true],
                     // ['label' => 'Login', 'url' => ['site/login'], 'icon' => 'sign-in-alt', 'visible' => Yii::$app->user->isGuest],
-                    ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
+                    // ['label' => 'Gii',  'icon' => 'file-code', 'url' => ['/gii'], 'target' => '_blank'],
                     // ['label' => 'Debug', 'icon' => 'bug', 'url' => ['/debug'], 'target' => '_blank'],
                     ['label' => 'CRUD Tabelas', 'header' => true],
                     [
                         'label' => 'User Profile',
                         'icon' => 'fas fa-users',
                         'url' => ['/userprofile/index'],
+                        'visible' => Yii::$app->user->can('admin'),
                     ],
                     [
                         'label' => 'Anuncio',

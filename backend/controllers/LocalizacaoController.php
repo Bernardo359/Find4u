@@ -7,6 +7,8 @@ use backend\models\LocalizacaoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\filters\AccessControl;
+use yii;
 
 /**
  * LocalizacaoController implements the CRUD actions for Localizacao model.
@@ -18,17 +20,27 @@ class LocalizacaoController extends Controller
      */
     public function behaviors()
     {
-        return array_merge(
-            parent::behaviors(),
-            [
-                'verbs' => [
-                    'class' => VerbFilter::className(),
-                    'actions' => [
-                        'delete' => ['POST'],
+        return [
+            'access' => [
+                'class' => AccessControl::class,
+                'only' => [],
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['admin', 'gestor'],
                     ],
                 ],
-            ]
-        );
+                'denyCallback' => function ($rule, $action) {
+                return Yii::$app->response->redirect(['site/index']);
+                }
+            ],
+            'verbs' => [
+                'class' => VerbFilter::class,
+                'actions' => [
+                    'logout' => ['post'],
+                ],
+            ],
+        ];
     }
 
     /**
