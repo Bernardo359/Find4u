@@ -16,6 +16,7 @@ class AppAsset extends AssetBundle
         'template/css/owl.css',
         'template/css/animate.css',
         'template/css/site.css',
+        'template/css/modal.css',
         
 
         // CDN OK
@@ -23,6 +24,7 @@ class AppAsset extends AssetBundle
     ];
 
     public $js = [
+        'template/js/modal.js',
         'template/js/isotope.min.js',
         'template/js/owl-carousel.js',
         'template/js/counter.js',
@@ -36,4 +38,6 @@ class AppAsset extends AssetBundle
         'yii\bootstrap5\BootstrapAsset',       // Carrega Bootstrap CSS
         'yii\bootstrap5\BootstrapPluginAsset', // Carrega Bootstrap JS
     ];
+
+    public $jsOptions = ['position' => \yii\web\View::POS_END];
 }

@@ -147,6 +147,20 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
         </footer>
     <?php endif; ?>
 
+    <!-- Modal global -->
+    <div id="modalOverlay" class="modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+        background: rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:1050;">
+        <div class="modal" style="background:white; padding:20px; border-radius:8px; width:300px; text-align:center;">
+            <h2>Marcar Visita</h2>
+            <label>Data:</label><br>
+            <input type="date"><br><br>
+            <label>Hora:</label><br>
+            <input type="time"><br><br>
+            <button class="save-btn" type="button">Agendar</button>
+            <button class="close-btn" id="closeModalBtn" type="button">Fechar</button>
+        </div>
+    </div>
+
     <?php $this->endBody() ?>
 </body>
 

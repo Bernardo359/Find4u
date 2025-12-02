@@ -22,8 +22,14 @@ use yii\helpers\Url;
                         <div class="item">
 
                             <?php
-                            // Foto (se existir)
-                            $foto = $anuncio->fotos[0]->caminho ?? '../../web/template/img/property-01.jpg';
+                            // Foto (se existir) - proteger contra arrays vazios
+                            $defaultImg = Yii::getAlias('@web') . '/template/img/property-01.jpg';
+                            $foto = $defaultImg;
+
+                            if (!empty($anuncio->fotos) && isset($anuncio->fotos[0]) && !empty($anuncio->fotos[0]->nomefoto)) {
+                                $f = $anuncio->fotos[0];
+                                $foto = Yii::getAlias('@web') . '/uploads/' . $f->nomefoto;
+                            }
                             ?>
                             <img src="<?= $foto ?>" alt="imagem do anúncio">
 
@@ -34,7 +40,7 @@ use yii\helpers\Url;
                             <ul>
                                 <li>Tipologia: <span><?= $anuncio->tipologia ?></span></li>
                                 <li>Área: <span><?= $anuncio->area ?> m2</span></li>
-                                <li>Localização: <span><?= $anuncio->localizacao->nome ?? 'N/D' ?></span></li>
+                                <li>Localização: <span><?= $anuncio->localizacao->distrito ?? 'N/D' ?></span></li>
                             </ul>
 
                         </div>

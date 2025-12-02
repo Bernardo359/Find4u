@@ -14,12 +14,10 @@ $this->title = 'Detalhes Imóvel';
             <img src="../../web/template/img/single-property.jpg" alt="">
           </div>
           <div class="main-content">
-            <span class="category">Apparment</span>
-            <h4>24 New Street Miami, OR 24560</h4>
-            <p>Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of them ugh hella.
+            <span class="category"><?= $anuncio->categoria->nome ?></span>
+            <h4><?= $anuncio->titulo ?></h4>
+            <p>Descricao uniforme????</p>
 
-              <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.
-            </p>
           </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
@@ -65,11 +63,11 @@ $this->title = 'Detalhes Imóvel';
             <ul>
               <li>
                 <img src="../../web/template/img/info-icon-01.png" alt="" style="max-width: 52px;">
-                <h4><br><span>Total Flat Space</span></h4>
+                <h4><?= $anuncio->area  ?> m<sup>2</sup><br><span>Area em m<sup>2</sup></span></h4>
               </li>
               <li>
                 <img src="../../web/template/img/info-icon-02.png" alt="" style="max-width: 52px;">
-                <h4>Contract<br><span>Contract Ready</span></h4>
+                <h4><?= $anuncio->tipologia ?><br><span>Tipologia</span></h4>
               </li>
               <li>
                 <img src="../../web/template/img/info-icon-03.png" alt="" style="max-width: 52px;">
@@ -82,9 +80,60 @@ $this->title = 'Detalhes Imóvel';
             </ul>
           </div>
           <div class="main-button" style="padding-top: 40px;">
-            <a href="#">Marcar Visita</a>
+            <button class="show-modal" id="openModalBtn" type="button">Marcar Visita</button>
           </div>
         </div>
       </div>
+
     </div>
   </div>
+</div>
+
+<!--Modal-->
+<div id="modalOverlay" class="custom-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
+    background: rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+
+  <div class="custom-modal" style="background:white; padding:20px; border-radius:8px; width:300px; text-align:center;">
+    <h2>Marcar Visita</h2>
+
+    <label>Data & Hora:</label><br>
+    <input type="datetime-local"><br><br>
+
+    <label>Notas Adicionais:</label><br>
+    <textarea name="observacoes" rows="4" cols="30" placeholder="Escreva aqui suas observações..."></textarea><br><br>
+
+    <button class="save-btn" type="button">Agendar</button>
+    <button class="close-btn" id="closeModalBtn" type="button">Fechar</button>
+  </div>
+</div>  
+
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const openModalBtn = document.getElementById("openModalBtn");
+    const closeModalBtn = document.getElementById("closeModalBtn");
+    const modalOverlay = document.getElementById("modalOverlay");
+
+    console.log("JS carregado:", openModalBtn, modalOverlay);
+
+    openModalBtn.addEventListener("click", function(e) {
+      e.preventDefault(); // evita qualquer comportamento default
+      modalOverlay.style.display = "flex";
+      console.log("Modal aberto");
+    });
+
+    closeModalBtn.addEventListener("click", function(e) {
+      e.preventDefault();
+      modalOverlay.style.display = "none";
+      console.log("Modal fechado");
+    });
+
+    modalOverlay.addEventListener("click", function(e) {
+      if (e.target === modalOverlay) {
+        modalOverlay.style.display = "none";
+        console.log("Modal fechado clicando fora");
+      }
+    });
+  });
+</script>
