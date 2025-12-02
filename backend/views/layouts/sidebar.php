@@ -40,17 +40,17 @@ use yii\helpers\Url;
                     [
                         'label' => 'Home Page',
                         'icon' => 'tachometer-alt',
-                        'badge' => '<span class="right badge badge-info">2</span>',
+                        'url' => ['/site/index']
                     ],
                     [
                         'label' => 'Anúncios',
                         'icon' => 'fas fa-home',
-                        'badge' => '<span class="right badge badge-info">2</span>',
+                        // 'badge' => '<span class="right badge badge-info">2</span>',
                     ],
                     [
                         'label' => 'Denuncias',
                         'icon' => 'fas fa-exclamation-triangle',
-                        'badge' => '<span class="right badge badge-info">2</span>',
+                        // 'badge' => '<span class="right badge badge-info">2</span>',
                     ],  
                     [
                         'label' => 'Utilizadores',
@@ -61,7 +61,7 @@ use yii\helpers\Url;
                     [
                         'label' => 'Localizações',
                         'icon' => 'fas fa-solid fa-map',
-                        'badge' => '<span class="right badge badge-danger">New</span>',
+                        // 'badge' => '<span class="right badge badge-danger">New</span>',
                     ],  
                       
                     
@@ -123,10 +123,6 @@ use yii\helpers\Url;
                         'icon' => 'fas fa-calendar',
                         'url' => ['/visita/index'],
                     ],
-                    ['label' => 'LABELS', 'header' => true],
-                    ['label' => 'Important', 'iconStyle' => 'far', 'iconClassAdded' => 'text-danger'],
-                    ['label' => 'Warning', 'iconClass' => 'nav-icon far fa-circle text-warning'],
-                    ['label' => 'Informational', 'iconStyle' => 'far', 'iconClassAdded' => 'text-info'],
                 ],
             ]);
             ?>
