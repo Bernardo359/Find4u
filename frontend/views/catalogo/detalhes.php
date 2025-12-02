@@ -1,7 +1,8 @@
-<?php 
-    /** @var yii\web\View $this */
+<?php
 
-    $this->title = 'Detalhes Imóvel';
+/** @var yii\web\View $this */
+
+$this->title = 'Detalhes Imóvel';
 ?>
 
 <div class="page-heading header-text">
@@ -16,9 +17,10 @@
             <span class="category">Apparment</span>
             <h4>24 New Street Miami, OR 24560</h4>
             <p>Get <strong>the best villa agency</strong> HTML CSS Bootstrap Template for your company website. TemplateMo provides you the <a href="https://www.google.com/search?q=best+free+css+templates" target="_blank">best free CSS templates</a> in the world. Please tell your friends about it. Thank you. Cloud bread kogi bitters pitchfork shoreditch tumblr yr succulents single-origin coffee schlitz enamel pin you probably haven't heard of them ugh hella.
-            
-            <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.</p>
-          </div> 
+
+              <br><br>When you look for free CSS templates, you can simply type TemplateMo in any search engine website. In addition, you can type TemplateMo Digital Marketing, TemplateMo Corporate Layouts, etc. Master cleanse +1 intelligentsia swag post-ironic, slow-carb chambray knausgaard PBR&B DSA poutine neutra cardigan hoodie pop-up.
+            </p>
+          </div>
           <div class="accordion" id="accordionExample">
             <div class="accordion-item">
               <h2 class="accordion-header" id="headingOne">
@@ -63,7 +65,7 @@
             <ul>
               <li>
                 <img src="../../web/template/img/info-icon-01.png" alt="" style="max-width: 52px;">
-                <h4>450 m2<br><span>Total Flat Space</span></h4>
+                <h4><br><span>Total Flat Space</span></h4>
               </li>
               <li>
                 <img src="../../web/template/img/info-icon-02.png" alt="" style="max-width: 52px;">
@@ -79,9 +81,10 @@
               </li>
             </ul>
           </div>
+          <div class="main-button" style="padding-top: 40px;">
+            <a href="#">Marcar Visita</a>
+          </div>
         </div>
       </div>
     </div>
   </div>
-
-  
