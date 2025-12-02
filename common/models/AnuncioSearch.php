@@ -67,12 +67,18 @@ class AnuncioSearch extends Anuncio
             return $dataProvider;
         }
 
+        if (!empty($this->datapublicacao)) {
+            $query->andWhere('DATE(datapublicacao) = :date', [
+                ':date' => date('Y-m-d', strtotime($this->datapublicacao))
+            ]);
+        }
+
+
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
             'preco' => $this->preco,
             'area' => $this->area,
-            'datapublicacao' => $this->datapublicacao,
             'dataexpiracao' => $this->dataexpiracao,
             'userprofileid' => $this->userprofileid,
             'categoriaid' => $this->categoriaid,

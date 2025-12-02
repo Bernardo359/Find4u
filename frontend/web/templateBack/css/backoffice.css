@@ -646,3 +646,110 @@ body {
   background: #fef3c7;
   color: #d97706;
 }
+
+/*PAGE MEUS ANUNCIOS*/
+
+/* Estilo dos nomes das colunas */
+.anuncio-index table thead th {
+    text-decoration: none !important;
+    background-color: #253439;
+    color: #f8f9fa !important;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase; 
+    border-bottom: 2px solid #dee2e6; /* linha inferior mais clean */
+    letter-spacing: 0.5px;       /* leve espaçamento para ficar moderno */
+}
+
+/* Corrige a cor dos links nos headers da tabela */
+.anuncio-index table thead th a,
+.anuncio-index table thead th a:link,
+.anuncio-index table thead th a:visited,
+.anuncio-index table thead th a:active {
+    color: #f8f9fa !important;     /* a mesma cor que queres */
+    text-decoration: none !important;
+    font-weight: 600 !important;
+}
+
+/* Hover */
+.anuncio-index table thead th a:hover {
+    color: #ffffff !important;
+    text-decoration: none !important;
+}
+
+/* Botão VER - Outline Azul */
+.btn-view-custom {
+    color: #253439 !important;
+    border: 2px solid #253439 !important;
+    background-color: transparent !important;
+    transition: 0.2s;
+}
+.btn-view-custom:hover {
+    background-color: #253439 !important;
+    color: #fff !important;
+}
+
+/* Botão EDITAR - Outline Gold */
+.btn-update-custom {
+    color: #b49d7e !important;
+    border: 2px solid #b49d7e !important;
+    background-color: transparent !important;
+    transition: 0.2s;
+}
+.btn-update-custom:hover {
+    background-color: #b49d7e !important;
+    color: #000 !important;
+}
+
+
+/* Botão APAGAR - Outline Vermelho */
+.btn-delete-custom {
+    color: #fa5252 !important;
+    border: 2px solid #fa5252 !important;
+    background-color: transparent !important;
+    transition: 0.2s;
+}
+.btn-delete-custom:hover {
+    background-color: #fa5252;
+    color: #fff;
+}
+
+
+/* PAGE VIEW ANUNCIO */
+
+/* Caixas modernas */
+.info-box-custom {
+    background: white;
+    padding: 18px 22px;
+    border-radius: 10px;
+    border: 1px solid #e3e6e8;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    transition: 0.2s ease;
+}
+
+.info-box-custom:hover {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Label */
+.info-label {
+    color: #6c757d;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin-bottom: 6px;
+}
+
+/* Valor */
+.info-value {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #343a40;
+}
+
+
+
+
+
+
+

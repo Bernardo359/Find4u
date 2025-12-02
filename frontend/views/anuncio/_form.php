@@ -87,6 +87,17 @@ use common\models\Categoria;
             </div>
         </div>
 
+        <?php if ($model->id): ?>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <?= $form->field($model, 'estadoanuncioid')->dropDownList(
+                        \yii\helpers\ArrayHelper::map(\common\models\Estadoanuncio::find()->all(), 'id', 'estado'),
+                        ['prompt' => 'Selecione um estado']
+                    )->label('Estado do Anúncio') ?>
+                </div>
+            </div>
+         <?php endif; ?>
+
         <div class="text-center mt-4">
             <?= Html::submitButton($model->id ? 'Guardar Alterações' : 'Criar Anúncio', ['class' => 'btn btn-success btn-lg']) ?>
             <?= Html::a('⬅ Voltar', ['index'], ['class' => 'btn btn-secondary btn-lg ms-2']) ?>

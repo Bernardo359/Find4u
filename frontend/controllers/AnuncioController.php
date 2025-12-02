@@ -60,8 +60,11 @@ class AnuncioController extends Controller
      */
     public function actionView($id)
     {
+        $model = $this->findModel($id);
+        $fullocalizacao=$model->localizacao->distrito . ' - ' . $model->localizacao->concelho . ' - ' . $model->localizacao->freguesia . ', ' . $model->localizacao->moradacompleta . ', porta: nº ' . $model->localizacao->porta;
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'fullocalizacao' => $fullocalizacao,
         ]);
     }
 

@@ -14,5 +14,10 @@ return [
             // uncomment if you want to cache RBAC items hierarchy
             // 'cache' => 'cache',
         ],
+        'formatter' => [
+            'class' => 'yii\i18n\Formatter',
+            'currencyCode' => 'EUR', // moeda padrão €
+            'locale' => 'pt-PT',     // formato de datas e números português
+        ],
     ],
 ];

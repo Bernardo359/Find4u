@@ -19,6 +19,7 @@ class AnuncioForm extends Model
     public $area;
     public $caracteristicasadicionais;
     public $categoriaid;
+    public $estadoanuncioid;
 
     // Localização
     public $distrito;
@@ -48,7 +49,7 @@ class AnuncioForm extends Model
             ], 'required'],
 
             // inteiros
-            [['area', 'porta', 'escolas', 'transportes', 'supermercados', 'categoriaid'], 'integer'],
+            [['area', 'porta', 'escolas', 'transportes', 'supermercados', 'categoriaid', 'estadoanuncioid'], 'integer'],
 
             // textos
             [['titulo', 'descricao', 'tipologia'], 'string', 'max' => 255],
@@ -165,6 +166,7 @@ class AnuncioForm extends Model
         $anuncio->caracteristicasadicionais = $this->caracteristicasadicionais;
         $anuncio->categoriaid = $this->categoriaid;
         $anuncio->localizacaoid = $loc->id;
+        $anuncio->estadoanuncioid = $this->estadoanuncioid;
         $anuncio->save(false);
 
         // 4) Guardar fotos novas se houver
