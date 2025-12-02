@@ -2,90 +2,34 @@
 
 namespace frontend\controllers;
 
-use frontend\models\ResendVerificationEmailForm;
-use frontend\models\VerifyEmailForm;
-use Yii;
-use yii\base\InvalidArgumentException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
+use common\models\Anuncio;
 
-/**
- * Site controller
- */
 class CatalogoController extends Controller
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function behaviors()
-    {
-        return [
-            'access' => [
-                'class' => AccessControl::class,
-                'only' => ['logout', 'signup'],
-                'rules' => [
-                    [
-                        'actions' => ['signup'],
-                        'allow' => true,
-                        'roles' => ['?'],
-                    ],
-                    [
-                        'actions' => ['logout'],
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'verbs' => [
-                'class' => VerbFilter::class,
-                'actions' => [
-                    'logout' => ['post'],
-                ],
-            ],
-        ];
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function actions()
-    {
-        return [
-            'error' => [
-                'class' => \yii\web\ErrorAction::class,
-            ],
-            'captcha' => [
-                'class' => \yii\captcha\CaptchaAction::class,
-                'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
-            ],
-        ];
-    }
-
-    /**
-     * Displays homepage.
-     *
-     * @return mixed
-     */
-
     public function actionCatalogo()
     {
-        return $this->render('catalogo');
+        // buscar apenas anúncios ativos
+        $anuncios = Anuncio::find()
+            ->where(['estadoanuncioid' => Anuncio::ESTADO_ATIVO])
+            ->orderBy(['datapublicacao' => SORT_DESC])
+            ->all();
+
+        return $this->render('catalogo', [
+            'anuncios' => $anuncios
+        ]);
     }
 
-    public function actionFavoritos()
+    public function actionDetalhes($id)
     {
-        return $this->render('favoritos');
-    }
+        $anuncio = Anuncio::findOne($id);
 
-    public function actionDetalhes()
-    {
-        return $this->render('detalhes');
+        if (!$anuncio) {
+            throw new \yii\web\NotFoundHttpException("Anúncio não encontrado.");
+        }
+
+        return $this->render('detalhes', [
+            'anuncio' => $anuncio
+        ]);
     }
 }
