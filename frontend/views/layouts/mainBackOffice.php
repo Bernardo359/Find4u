@@ -36,22 +36,24 @@ BackofficeAsset::register($this);
 <div class="sidebar">
     <div class="sidebar-header">
         <div class="logo">
-            <a href="<?= \yii\helpers\Url::to(['backoffice/index']) ?>">
+            <a href="<?= \yii\helpers\Url::to(['site/index']) ?>">
                 <img src="<?= Url::to('@web/templateBack/img/Logo_find4u2.png') ?>" alt="Find4U">
             </a>
         </div>
     </div>
     
     <div class="user-profile">
-        <div class="user-info">
-            <div class="avatar">
-                <i class="fas fa-user"></i>
+        <a href="<?= Url::to(['perfil/profile']) ?>">
+            <div class="user-info">
+                <div class="avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="user-details">
+                    <h3><?= Yii::$app->user->identity->username ?></h3>
+                    <p>Anunciante Premium</p>
+                </div>
             </div>
-            <div class="user-details">
-                <h3><?= Yii::$app->user->identity->username ?></h3>
-                <p>Anunciante Premium</p>
-            </div>
-        </div>
+        </a>
         <?= Html::a('<i class="fas fa-plus"></i> <span>Novo Anúncio</span>', ['anuncio/create'], ['class' => 'new-listing-btn']) ?>
     </div>
 

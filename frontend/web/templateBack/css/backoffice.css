@@ -46,10 +46,15 @@ body {
   border-bottom: 1px solid #e5e7eb;
 }
 
+.user-profile a{
+  text-decoration: none;
+}
+
 .user-info {
   display: flex;
   align-items: center;
   gap: 12px;
+  text-decoration: none;
 }
 
 .avatar {
