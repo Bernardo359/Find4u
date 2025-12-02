@@ -37,7 +37,12 @@ $this->title = $model->id;
             'datapublicacao',
             'dataexpiracao',
             'userprofileid',
-            'categoriaid',
+            [
+                'attribute' => 'Categoria',
+                'value' => function ($model) {
+                    return $model->categoria->nome;
+                },
+            ],
             'localizacaoid',
             'estadoanuncioid',
         ],
