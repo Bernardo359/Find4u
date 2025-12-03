@@ -38,7 +38,7 @@ use common\models\Estadoanuncio;
             <div class="file-upload-label">
                 <i class="fas fa-cloud-upload-alt"></i>
                 <p>Clique ou arraste as fotos aqui</p>
-                <span>PNG, JPG, GIF até 5MB</span>
+                <span>PNG, JPG, GIF até 2MB</span>
             </div>
         </div>
 

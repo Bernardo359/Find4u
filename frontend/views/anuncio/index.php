@@ -25,8 +25,12 @@ $this->title = 'Anuncios';
         'tableOptions' => ['class' => 'table table-hover table-sm align-middle mb-0'],
         'summaryOptions' => ['class' => 'text-muted small mb-3'],
         'filterRowOptions' => ['class' => 'table-active'],
-        'rowOptions' => function($model, $key, $index, $grid) {
-            return ['class' => $index % 2 === 0 ? '' : 'table-light']; // linhas alternadas suaves
+        'rowOptions' => function($model) {
+            return [
+                'onclick' => 'window.location.href="' . Url::to(['view', 'id' => $model->id]) . '"',
+                'style' => 'cursor: pointer;',
+                'class' => 'table-row-clickable'
+            ];
         },
         'pager' => [
             'class' => \yii\bootstrap4\LinkPager::class,
@@ -61,6 +65,23 @@ $this->title = 'Anuncios';
             [
                 'attribute' => 'tipologia',
                 'filterInputOptions' => ['class' => 'form-control form-control-sm', 'placeholder' => 'Filtrar tipologia'],
+            ],
+            [
+                'attribute' => 'estadoanuncioid',
+                'label' => 'Estado',
+                'value' => function($model){
+                    return $model->estadoanuncio ? $model->estadoanuncio->estado : '_';
+                },
+                'filter' => \yii\helpers\ArrayHelper::map(
+                    \common\models\Estadoanuncio::find()->all(), 
+                    'id', 
+                    'estado'
+                ),
+                'filterInputOptions'=> [
+                    'class'=>'form-control form-control-sm', 
+                    'prompt'=>'Filtrar estado'
+                ],
+                'contentOptions'=>  ['class'=>'fw-semibold']
             ],
             [
                 'attribute' => 'datapublicacao',
