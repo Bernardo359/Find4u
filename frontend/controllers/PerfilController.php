@@ -102,7 +102,7 @@ class PerfilController extends Controller
         $user = User::findOne($id);
 
         if ($profile->load(Yii::$app->request->post()) && $user->load(Yii::$app->request->post())) {
-            $user->username = $profile->nome; // se você quer sincronizar o nome
+            $user->username = $profile->nome;
             if ($profile->save() && $user->save()) {
                 Yii::$app->session->setFlash('success', 'Perfil atualizado com sucesso!');
                 return $this->redirect(['perfil/profile']);
