@@ -722,37 +722,169 @@ body {
 
 /* PAGE VIEW ANUNCIO */
 
-/* Caixas modernas */
-.info-box-custom {
-    background: white;
-    padding: 18px 22px;
-    border-radius: 10px;
-    border: 1px solid #e3e6e8;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    transition: 0.2s ease;
+.anuncio-view-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    background-color: #eff0f1;
 }
 
-.info-box-custom:hover {
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+/* Header */
+.anuncio-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid #b49d7e;
+    padding-bottom: 1.5rem;
 }
 
-/* Label */
-.info-label {
-    color: #6c757d;
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: .5px;
-    margin-bottom: 6px;
+.anuncio-title-section {
+    flex: 1;
 }
 
-/* Valor */
-.info-value {
-    font-size: 1rem;
+.anuncio-main-title {
+    font-size: 2rem;
+    color: #253439;
+    margin: 0;
     font-weight: 600;
-    color: #343a40;
+}
+
+.anuncio-id {
+    color: #666;
+    margin: 0.5rem 0 0 0;
+    font-size: 0.9rem;
+}
+
+.anuncio-actions {
+    display: flex;
+    gap: 0.5rem;
 }
 
 
+/* Grids */
+.anuncio-grid-principal {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.anuncio-grid-detalhes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+/* Cards */
+.anuncio-card {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-bottom: 1px solid #f0f0f0;
+    box-shadow: 0 2px 8px rgba(37, 52, 57, 0.08),
+                0 4px 16px rgba(180, 157, 126, 0.06);
+    transition: all 0.3s ease;
+}
+
+.anuncio-card:hover {
+    box-shadow: 0 4px 16px rgba(37, 52, 57, 0.12),
+                0 8px 24px rgba(180, 157, 126, 0.12);
+    transform: translateY(-2px);
+}
+
+.anuncio-card-full {
+    grid-column: 1 / -1;
+}
+
+/* Labels e Values */
+.anuncio-label {
+    color: #b49d7e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 0.5rem 0;
+}
+
+.anuncio-value {
+    color: #253439;
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.anuncio-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+/* Badge */
+.anuncio-badge {
+    background-color: #e8f4f8;
+    color: #253439;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Características */
+.anuncio-caracteristicas {
+    margin-bottom: 3rem;
+}
+
+.anuncio-caracteristicas-text {
+    color: #253439;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .anuncio-view-container {
+        padding: 1.5rem 0.75rem;
+    }
+
+    .anuncio-header {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .anuncio-actions {
+        align-self: flex-start;
+    }
+
+    .anuncio-main-title {
+        font-size: 1.5rem;
+    }
+
+    .anuncio-grid-principal {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .anuncio-grid-detalhes {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .anuncio-grid-detalhes {
+        grid-template-columns: 1fr;
+    }
+
+    .anuncio-card {
+        padding: 1rem;
+    }
+
+    .anuncio-main-title {
+        font-size: 1.25rem;
+    }
+}
 
 
 

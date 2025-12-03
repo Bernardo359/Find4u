@@ -71,8 +71,8 @@ class AnuncioForm extends Model
 
     public function createAnuncio()
     {
-        // 1) Carregar ficheiros antes da validação
-        $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
+        // // 1) Carregar ficheiros antes da validação
+        // $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
 
         if (!$this->validate()) {
             return false;
