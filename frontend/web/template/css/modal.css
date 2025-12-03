@@ -23,13 +23,14 @@
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    display: none; /* controlado pelo JS */
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 0.6);
     z-index: 1050;
 }
 
+/* Estado normal do modal (invisível antes de abrir) */
 .custom-modal {
     background: #ffffff;
     padding: 25px;
@@ -38,27 +39,50 @@
     max-width: 1200px;
     height: auto;
     box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+
+    /* Para animação */
+    opacity: 0;
+    transform: scale(0.85);
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Quando o modal abre (classe adicionada por JS) */
+.custom-modal.active {
+    opacity: 1;
+    transform: scale(1);
+    animation: modalFadeIn 0.3s ease forwards;
+}
 
 .custom-modal h2 {
     margin-top: 0;
 }
 
 .close-btn {
-    background: red;
+    background: rgb(184, 0, 0);
     color: white;
     padding: 8px 15px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 100px;
 }
 
 .save-btn {
-    background: green;
+    background: rgb(0, 112, 0);
     color: white;
     padding: 8px 15px;
     border: none;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 100px;
+}
+
+/* Keyframes da animação */
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.85);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }

@@ -314,6 +314,11 @@ a.desc:after {
     color: #B49D7E;
 }
 
+/*=====detalhes do produto*/
+.info-table i{
+    color: #253439;
+}
+
 
 @media (max-width: 768px) {
     .header {

@@ -11,10 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
     // Abrir modal
     openModalBtn.onclick = () => {
         modalOverlay.style.display = "flex";
+        document.querySelector(".custom-modal").classList.add("active");
     };
 
     // Fechar modal
     closeModalBtn.onclick = () => {
+        document.querySelector(".custom-modal").classList.remove("active");
         modalOverlay.style.display = "none";
     };
 

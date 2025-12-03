@@ -1745,7 +1745,7 @@ Single Page Style
 .single-property .info-table ul li {
   display: block;
   margin-bottom: 35px;
-  padding-bottom: 35px;
+  /*padding-bottom: 35px;*/
   border-bottom: 1px solid #eee;
 }
 
@@ -1755,7 +1755,12 @@ Single Page Style
   margin-bottom: 0;
 }
 
-.single-property .info-table ul li img {
+.single-property .info-table ul li i{
+  float: left;
+  margin-right: 25px;
+}
+
+.single-property .info-table ul li img{
   float: left;
   margin-right: 25px;
 }
