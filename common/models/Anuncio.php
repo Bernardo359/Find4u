@@ -136,6 +136,23 @@ class Anuncio extends \yii\db\ActiveRecord
         return $this->hasMany(Favorito::class, ['anuncioid' => 'id']);
     }
 
+    public function getIsFavorito()
+    {
+        if (Yii::$app->user->isGuest) return false;
+
+        $userprofile = Userprofile::find()
+            ->where(['user_id' => Yii::$app->user->identity->id])
+            ->one();
+
+        return Favorito::find()
+            ->where([
+                'userprofileid' => $userprofile->id,
+                'anuncioid' => $this->id
+            ])
+            ->exists();
+    }
+
+
     /**
      * Gets query for [[Fotos]].
      *

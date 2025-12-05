@@ -1,5 +1,8 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
+use common\models\Favorito;
+use common\models\Userprofile;
 
 /** @var $anuncios common\models\Anuncio[] */
 ?>
@@ -27,9 +30,35 @@ use yii\helpers\Url;
         <div class="properties-grid">
             <?php foreach ($anuncios as $anuncio): ?>
                 <div class="property-card adv">
-                    <button class="btn-favorito">
-                        <i class="far fa-heart"></i>
-                    </button>
+                    <?php
+                    $userprofile = null;
+                    $isFavorito = false;
+
+                    if (!Yii::$app->user->isGuest) {
+                        $userprofile = Userprofile::find()
+                            ->where(['user_id' => Yii::$app->user->id])
+                            ->one();
+
+                        if ($userprofile) {
+                            $isFavorito = Favorito::find()->where([
+                                'userprofileid' => $userprofile->id,
+                                'anuncioid' => $anuncio->id
+                            ])->exists();
+                        }
+                    }
+
+                    $iconClass = $isFavorito ? 'fas fa-heart' : 'far fa-heart';
+
+                    echo Html::a(
+                        '<button class="btn-favorito"><i class="'.$iconClass.'"></i></button>',
+                        ['catalogo/toggle-favorito', 'id' => $anuncio->id],
+                        [
+                            'encode' => false,
+                            'data-method' => 'post',
+                            'class' => 'favorito-link'
+                        ]
+                    );
+                    ?>
                     <a href="<?= Url::to(['catalogo/detalhes', 'id' => $anuncio->id]) ?>" class="card-link">
                         
                         <!-- Imagem -->
