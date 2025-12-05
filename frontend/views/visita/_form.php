@@ -10,19 +10,27 @@ use yii\widgets\ActiveForm;
 
 <div class="visita-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php
+    $form = ActiveForm::begin([
+        'action' => \yii\helpers\Url::to(['/visita/create', 'id' => Yii::$app->request->get('id')]),
+        'method' => 'post',
+    ]);
+    ?>
 
-    <?= $form->field($model, 'datahoraagenda')->textInput() ?>
 
-    <?= $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
+    <!-- Campo data e hora -->
+    <?= $form->field($model, 'datahoraagenda')->input('datetime-local', ['value' => date('Y-m-d\TH:i'),]) ?>
 
-    <?= $form->field($model, 'notas')->textInput(['maxlength' => true]) ?>
+    <!-- Campo notas maior -->
+    <?= $form->field($model, 'notas')->textarea(['rows' => 5, 'placeholder' => 'Escreva aqui suas observações...']) ?>
 
-    <?= $form->field($model, 'datacriacao')->textInput() ?>
+    <!--$form->field($model, 'datacriacao')->textInput() ?>
+    
+    $form->field($model, 'estado')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'userprofileid')->textInput() ?>
+    $form->field($model, 'userprofileid')->textInput() ?> 
 
-    <?= $form->field($model, 'anuncioid')->textInput() ?>
+    //$form->field($model, 'anuncioid')->textInput() ?>-->
 
     <div class="form-group">
         <?= Html::submitButton('Save', ['class' => 'btn btn-success']) ?>

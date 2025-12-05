@@ -2,11 +2,13 @@
 
 namespace frontend\controllers;
 
+use common\models\Anuncio;
 use common\models\Visita;
 use common\models\VisitaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii;
 
 /**
  * VisitaController implements the CRUD actions for Visita model.
@@ -65,21 +67,51 @@ class VisitaController extends Controller
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return string|\yii\web\Response
      */
-    public function actionCreate()
+    public function actionCreate($id)
     {
         $model = new Visita();
 
-        if ($this->request->isPost) {
-            if ($model->load($this->request->post()) && $model->save()) {
-                return $this->redirect(['view', 'id' => $model->id]);
-            }
-        } else {
-            $model->loadDefaultValues();
+        //apanhar o userprofileid
+        $user = Yii::$app->user->identity;
+        $profile = $user->profile;
+        $userprofileid = $profile ? $profile->id : null;
+        if (!$userprofileid) {
+            Yii::$app->session->setFlash('error', 'Perfil do usuário não encontrado');
+            return $this->redirect(Yii::$app->request->referrer);
         }
 
-        return $this->render('create', [
-            'model' => $model,
-        ]);
+        //apanhar o anuncioid
+        $anuncio = Anuncio::findOne($id);
+        if (!$anuncio) {
+            Yii::$app->session->setFlash('error', 'Anúncio não encontrado');
+            return $this->redirect(Yii::$app->request->referrer);
+        }
+
+
+        if ($this->request->isPost) {
+            if ($model->load($this->request->post())) {
+
+                $model->estado = "Pendente";
+                $model->datacriacao = date('Y-m-d H:i:s');
+                $model->userprofileid = $userprofileid;
+                $model->anuncioid = $anuncio->id;
+
+                if ($model->save()) {
+                    Yii::$app->session->setFlash('success', 'Visita marcada com sucesso! Espere a resposta do anunciante');
+                } else {
+                    Yii::$app->session->setFlash('error', 'Erro ao salvar a visita!');
+                }
+            } else {
+                Yii::$app->session->setFlash('error', 'Erro ao marcar a visita! Tente mais tarde');
+                //return $this->redirect(Yii::$app->request->referrer);
+            }
+        }
+
+        return $this->redirect(Yii::$app->request->referrer);
+
+        // return $this->render('create', [
+        //     'model' => $model,
+        // ]);
     }
 
     /**

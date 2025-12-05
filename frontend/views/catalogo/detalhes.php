@@ -119,19 +119,16 @@ $this->title = 'Detalhes Imóvel';
 </div>
 
 <!--Modal-->
-<div id="modalOverlay" class="custom-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; 
-    background: rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
-
-  <div class="custom-modal" style="background:white; padding:20px; border-radius:8px; width:300px; text-align:center;">
+<div id="modalOverlay" class="custom-modal-overlay" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:9999;">
+  <div class="custom-modal">
     <h2>Marcar Visita</h2>
+    <?php
+    // Cria um novo modelo para preencher no modal
+    $model = new \common\models\Visita();
 
-    <label>Data & Hora:</label><br>
-    <input type="datetime-local"><br><br>
-
-    <label>Notas Adicionais:</label><br>
-    <textarea name="observacoes" rows="4" cols="30" placeholder="Escreva aqui suas observações..."></textarea><br><br>
-
-    <button class="save-btn" type="button">Agendar</button>
+    // Renderiza o form
+    echo $this->render('@frontend/views/visita/_form', ['model' => $model]);
+    ?>
     <button class="close-btn" id="closeModalBtn" type="button">Fechar</button>
   </div>
 </div>
