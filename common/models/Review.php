@@ -1,22 +1,21 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 
 /**
- * This is the model class for table "comentario".
+ * This is the model class for table "review".
  *
  * @property int $id
- * @property string $comentario
- * @property string $data
+ * @property int $classificacao
  * @property int $userprofileid
  * @property int $anuncioid
  *
  * @property Anuncio $anuncio
  * @property Userprofile $userprofile
  */
-class Comentario extends \yii\db\ActiveRecord
+class Review extends \yii\db\ActiveRecord
 {
 
 
@@ -25,7 +24,7 @@ class Comentario extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'comentario';
+        return 'review';
     }
 
     /**
@@ -34,9 +33,8 @@ class Comentario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['comentario', 'data', 'userprofileid', 'anuncioid'], 'required'],
-            [['userprofileid', 'anuncioid'], 'integer'],
-            [['comentario', 'data'], 'string', 'max' => 45],
+            [['classificacao', 'userprofileid', 'anuncioid'], 'required'],
+            [['classificacao', 'userprofileid', 'anuncioid'], 'integer'],
             [['anuncioid'], 'exist', 'skipOnError' => true, 'targetClass' => Anuncio::class, 'targetAttribute' => ['anuncioid' => 'id']],
             [['userprofileid'], 'exist', 'skipOnError' => true, 'targetClass' => Userprofile::class, 'targetAttribute' => ['userprofileid' => 'id']],
         ];
@@ -49,8 +47,7 @@ class Comentario extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'comentario' => 'Comentario',
-            'data' => 'Data',
+            'classificacao' => 'Classificacao',
             'userprofileid' => 'Userprofileid',
             'anuncioid' => 'Anuncioid',
         ];

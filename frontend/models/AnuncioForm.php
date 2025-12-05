@@ -42,11 +42,14 @@ class AnuncioForm extends Model
     {
         return [
             // obrigatórios
-            [[
-                'titulo', 'descricao', 'preco', 'tipologia', 'area',
-                'categoriaid', 'distrito', 'concelho', 'freguesia',
-                'moradacompleta', 'porta'
-            ], 'required'],
+            [
+                [
+                    'titulo', 'descricao', 'preco', 'tipologia', 'area',
+                    'categoriaid', 'distrito', 'concelho', 'freguesia',
+                    'moradacompleta', 'porta'
+                ],
+                'required'
+            ],
 
             // inteiros
             [['area', 'porta', 'escolas', 'transportes', 'supermercados', 'categoriaid', 'estadoanuncioid'], 'integer'],
@@ -60,7 +63,8 @@ class AnuncioForm extends Model
 
             // uploads
             [
-                'imageFiles', 'file',
+                'imageFiles',
+                'file',
                 'extensions' => 'png, jpg, jpeg',
                 'maxFiles' => 10,
                 'skipOnEmpty' => true
@@ -69,58 +73,71 @@ class AnuncioForm extends Model
     }
 
 
+    /**
+     * Criar novo anúncio
+     */
     public function createAnuncio()
     {
-        // // 1) Carregar ficheiros antes da validação
-        // $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
+        // Garantir que imageFiles são UploadedFile[]
+        $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
 
         if (!$this->validate()) {
             return false;
         }
 
-        // 2) Criar localização
+        // 1) Criar localização
         $loc = new Localizacao();
-        $loc->distrito = $this->distrito;
-        $loc->concelho = $this->concelho;
-        $loc->freguesia = $this->freguesia;
+        $loc->distrito       = $this->distrito;
+        $loc->concelho       = $this->concelho;
+        $loc->freguesia      = $this->freguesia;
         $loc->moradacompleta = $this->moradacompleta;
-        $loc->porta = $this->porta;
-        $loc->escolas = $this->escolas ?? 0;
-        $loc->transportes = $this->transportes ?? 0;
-        $loc->supermercados = $this->supermercados ?? 0;
+        $loc->porta          = $this->porta;
+        $loc->escolas        = $this->escolas ?? 0;
+        $loc->transportes    = $this->transportes ?? 0;
+        $loc->supermercados  = $this->supermercados ?? 0;
         $loc->save(false);
 
-        // 3) Criar anúncio
+        // 2) Criar anúncio
         $anuncio = new Anuncio();
-        $anuncio->titulo = $this->titulo;
-        $anuncio->descricao = $this->descricao;
-        $anuncio->preco = $this->preco;
-        $anuncio->tipologia = $this->tipologia;
-        $anuncio->area = $this->area;
+        $anuncio->titulo                   = $this->titulo;
+        $anuncio->descricao                = $this->descricao;
+        $anuncio->preco                    = $this->preco;
+        $anuncio->tipologia                = $this->tipologia;
+        $anuncio->area                     = $this->area;
         $anuncio->caracteristicasadicionais = $this->caracteristicasadicionais;
-        $anuncio->categoriaid = $this->categoriaid;
-        $anuncio->localizacaoid = $loc->id;
-        $anuncio->userprofileid = Yii::$app->user->identity->profile->id;
+        $anuncio->categoriaid              = $this->categoriaid;
+        $anuncio->localizacaoid            = $loc->id;
+        $anuncio->userprofileid            = Yii::$app->user->identity->profile->id;
+
         $anuncio->save(false);
 
         $this->id = $anuncio->id;
 
-        // 4) Guardar fotos
+        // 3) Guardar fotos
         $this->uploadFotos($anuncio->id);
 
         return true;
     }
 
 
+    /**
+     * Guardar imagens no servidor e na BD
+     */
     public function uploadFotos($anuncioId)
     {
-        if (!$this->imageFiles) {
+        if (empty($this->imageFiles)) {
             return;
         }
 
         $ordem = 1;
 
         foreach ($this->imageFiles as $file) {
+
+            // Ignorar entradas inválidas que venham como string
+            if (!$file instanceof UploadedFile) {
+                continue;
+            }
+
             $fileName = Yii::$app->security->generateRandomString() . '.' . $file->extension;
             $absolutePath = Yii::getAlias('@frontend/web/uploads/') . $fileName;
 
@@ -136,40 +153,46 @@ class AnuncioForm extends Model
         }
     }
 
+
+    /**
+     * Atualizar anúncio existente
+     */
     public function updateAnuncio($anuncio)
     {
-        // 1) Carregar ficheiros antes da validação
+        // Carregar ficheiros
         $this->imageFiles = UploadedFile::getInstances($this, 'imageFiles');
 
         if (!$this->validate()) {
             return false;
         }
 
-        // 2) Atualizar localização
+        // 1) Atualizar localização
         $loc = $anuncio->localizacao ?? new Localizacao();
-        $loc->distrito = $this->distrito;
-        $loc->concelho = $this->concelho;
-        $loc->freguesia = $this->freguesia;
+
+        $loc->distrito       = $this->distrito;
+        $loc->concelho       = $this->concelho;
+        $loc->freguesia      = $this->freguesia;
         $loc->moradacompleta = $this->moradacompleta;
-        $loc->porta = $this->porta;
-        $loc->escolas = $this->escolas ?? 0;
-        $loc->transportes = $this->transportes ?? 0;
-        $loc->supermercados = $this->supermercados ?? 0;
+        $loc->porta          = $this->porta;
+        $loc->escolas        = $this->escolas ?? 0;
+        $loc->transportes    = $this->transportes ?? 0;
+        $loc->supermercados  = $this->supermercados ?? 0;
         $loc->save(false);
 
-        // 3) Atualizar anúncio
-        $anuncio->titulo = $this->titulo;
-        $anuncio->descricao = $this->descricao;
-        $anuncio->preco = $this->preco;
-        $anuncio->tipologia = $this->tipologia;
-        $anuncio->area = $this->area;
+        // 2) Atualizar anúncio
+        $anuncio->titulo        = $this->titulo;
+        $anuncio->descricao     = $this->descricao;
+        $anuncio->preco         = $this->preco;
+        $anuncio->tipologia     = $this->tipologia;
+        $anuncio->area          = $this->area;
         $anuncio->caracteristicasadicionais = $this->caracteristicasadicionais;
-        $anuncio->categoriaid = $this->categoriaid;
+        $anuncio->categoriaid   = $this->categoriaid;
         $anuncio->localizacaoid = $loc->id;
         $anuncio->estadoanuncioid = $this->estadoanuncioid;
+
         $anuncio->save(false);
 
-        // 4) Guardar fotos novas se houver
+        // 3) Guardar novas fotos se houver
         $this->uploadFotos($anuncio->id);
 
         $this->id = $anuncio->id;
@@ -178,28 +201,29 @@ class AnuncioForm extends Model
     }
 
 
+    /**
+     * Preencher o formulário a partir do modelo
+     */
     public function loadFromModel($anuncio)
     {
-        $this->id = $anuncio->id;
-        $this->titulo = $anuncio->titulo;
-        $this->descricao = $anuncio->descricao;
-        $this->preco = $anuncio->preco;
-        $this->tipologia = $anuncio->tipologia;
-        $this->area = $anuncio->area;
+        $this->id           = $anuncio->id;
+        $this->titulo       = $anuncio->titulo;
+        $this->descricao    = $anuncio->descricao;
+        $this->preco        = $anuncio->preco;
+        $this->tipologia    = $anuncio->tipologia;
+        $this->area         = $anuncio->area;
         $this->caracteristicasadicionais = $anuncio->caracteristicasadicionais;
-        $this->categoriaid = $anuncio->categoriaid;
+        $this->categoriaid  = $anuncio->categoriaid;
 
-        // Se o anúncio tiver localização
         if ($anuncio->localizacao) {
-            $this->distrito = $anuncio->localizacao->distrito;
-            $this->concelho = $anuncio->localizacao->concelho;
-            $this->freguesia = $anuncio->localizacao->freguesia;
+            $this->distrito      = $anuncio->localizacao->distrito;
+            $this->concelho      = $anuncio->localizacao->concelho;
+            $this->freguesia     = $anuncio->localizacao->freguesia;
             $this->moradacompleta = $anuncio->localizacao->moradacompleta;
-            $this->porta = $anuncio->localizacao->porta;
-            $this->escolas = $anuncio->localizacao->escolas;
-            $this->transportes = $anuncio->localizacao->transportes;
+            $this->porta         = $anuncio->localizacao->porta;
+            $this->escolas       = $anuncio->localizacao->escolas;
+            $this->transportes   = $anuncio->localizacao->transportes;
             $this->supermercados = $anuncio->localizacao->supermercados;
         }
     }
-
 }

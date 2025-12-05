@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Stats;
+use common\models\Stats;
 use backend\models\StatsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

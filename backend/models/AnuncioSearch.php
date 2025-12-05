@@ -4,7 +4,7 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Anuncio;
+use common\models\Anuncio;
 
 /**
  * AnuncioSearch represents the model behind the search form of `backend\models\Anuncio`.

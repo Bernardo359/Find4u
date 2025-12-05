@@ -4,7 +4,7 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Foto;
+use common\models\Foto;
 
 /**
  * FotoSearch represents the model behind the search form of `backend\models\Foto`.

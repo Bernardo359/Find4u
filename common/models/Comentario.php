@@ -1,24 +1,22 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 
 /**
- * This is the model class for table "denuncia".
+ * This is the model class for table "comentario".
  *
  * @property int $id
- * @property string $motivo
- * @property string $descricao
- * @property string $estado
- * @property string $datadenuncia
+ * @property string $comentario
+ * @property string $data
  * @property int $userprofileid
  * @property int $anuncioid
  *
  * @property Anuncio $anuncio
  * @property Userprofile $userprofile
  */
-class Denuncia extends \yii\db\ActiveRecord
+class Comentario extends \yii\db\ActiveRecord
 {
 
 
@@ -27,7 +25,7 @@ class Denuncia extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'denuncia';
+        return 'comentario';
     }
 
     /**
@@ -36,11 +34,9 @@ class Denuncia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['motivo', 'descricao', 'estado', 'datadenuncia', 'userprofileid', 'anuncioid'], 'required'],
-            [['datadenuncia'], 'safe'],
+            [['comentario', 'data', 'userprofileid', 'anuncioid'], 'required'],
             [['userprofileid', 'anuncioid'], 'integer'],
-            [['motivo', 'estado'], 'string', 'max' => 45],
-            [['descricao'], 'string', 'max' => 100],
+            [['comentario', 'data'], 'string', 'max' => 45],
             [['anuncioid'], 'exist', 'skipOnError' => true, 'targetClass' => Anuncio::class, 'targetAttribute' => ['anuncioid' => 'id']],
             [['userprofileid'], 'exist', 'skipOnError' => true, 'targetClass' => Userprofile::class, 'targetAttribute' => ['userprofileid' => 'id']],
         ];
@@ -53,10 +49,8 @@ class Denuncia extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'motivo' => 'Motivo',
-            'descricao' => 'Descricao',
-            'estado' => 'Estado',
-            'datadenuncia' => 'Datadenuncia',
+            'comentario' => 'Comentario',
+            'data' => 'Data',
             'userprofileid' => 'Userprofileid',
             'anuncioid' => 'Anuncioid',
         ];

@@ -4,7 +4,7 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Denuncia;
+use common\models\Denuncia;
 
 /**
  * DenunciaSearch represents the model behind the search form of `backend\models\Denuncia`.

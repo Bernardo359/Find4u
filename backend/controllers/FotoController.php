@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Foto;
+use common\models\Foto;
 use backend\models\FotoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

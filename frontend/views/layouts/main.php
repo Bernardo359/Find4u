@@ -47,7 +47,7 @@ $isBackoffice = Yii::$app->controller->id === 'backoffice';
                             <ul class="nav">
                                 <li><a href="<?= Url::to(['/site/index']) ?>">Home</a></li>
                                 <li><a href="<?= Url::to(['/catalogo/catalogo']) ?>">Imóveis</a></li>
-                                <?php if (Yii::$app->user->can('anunciante')): ?>
+                                <?php if (Yii::$app->user->can('anunciante')):?>
                                     <li class="btnVisit">
                                         <a href="<?= Url::to(['/backoffice/index']) ?>">
                                             <i class="fa fa-chart-line"></i> Meus Anuncios

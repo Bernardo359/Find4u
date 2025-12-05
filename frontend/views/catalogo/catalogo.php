@@ -27,6 +27,9 @@ use yii\helpers\Url;
         <div class="properties-grid">
             <?php foreach ($anuncios as $anuncio): ?>
                 <div class="property-card adv">
+                    <button class="btn-favorito">
+                        <i class="far fa-heart"></i>
+                    </button>
                     <a href="<?= Url::to(['catalogo/detalhes', 'id' => $anuncio->id]) ?>" class="card-link">
                         
                         <!-- Imagem -->

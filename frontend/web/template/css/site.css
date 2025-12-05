@@ -145,6 +145,26 @@ a.desc:after {
     margin-top: 10px;
 }
 
+/*--------------Favoritos--------------*/
+.btn-favorito {
+    position: absolute;
+    top: 10px;
+    left:10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #fff;
+    text-shadow: 0 0 3px rgba(0,0,0,0.5);
+    z-index: 10;
+}
+
+.btn-favorito:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+}
+/*--------------Favoritos--------------*/
+
 /*=======perfil======*/
 
 .btn {

@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Denuncia;
+use common\models\Denuncia;
 use backend\models\DenunciaSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

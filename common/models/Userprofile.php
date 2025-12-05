@@ -4,13 +4,13 @@ namespace common\models;
 
 use Yii;
 use common\models\User;
-use backend\models\Anuncio;
-use backend\models\Comentario;
-use backend\models\Denuncia;
-use backend\models\Favorito;
-use backend\models\Review;
-use backend\models\Stats;
-use backend\models\Visita;
+use common\models\Comentario;
+use common\models\Denuncia;
+use common\models\Favorito;
+use common\models\Review;
+use common\models\Stats;
+use common\models\Visita;
+use common\models\Anuncio;
 
 /**
  * This is the model class for table "userprofile".

@@ -3,7 +3,7 @@
 use yii\helpers\Html;
 
 /** @var yii\web\View $this */
-/** @var backend\models\Favorito $model */
+/** @var common\models\Favorito $model */
 
 $this->title = 'Update Favorito: ' . $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Favoritos', 'url' => ['index']];

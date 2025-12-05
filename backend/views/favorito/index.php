@@ -1,6 +1,6 @@
 <?php
 
-use backend\models\Favorito;
+use common\models\Favorito;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;

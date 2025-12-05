@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Anuncio;
+use common\models\Anuncio;
 use backend\models\AnuncioSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -1,20 +1,24 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 
 /**
- * This is the model class for table "stats".
+ * This is the model class for table "denuncia".
  *
  * @property int $id
+ * @property string $motivo
+ * @property string $descricao
+ * @property string $estado
+ * @property string $datadenuncia
  * @property int $userprofileid
  * @property int $anuncioid
  *
  * @property Anuncio $anuncio
  * @property Userprofile $userprofile
  */
-class Stats extends \yii\db\ActiveRecord
+class Denuncia extends \yii\db\ActiveRecord
 {
 
 
@@ -23,7 +27,7 @@ class Stats extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'stats';
+        return 'denuncia';
     }
 
     /**
@@ -32,8 +36,11 @@ class Stats extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['userprofileid', 'anuncioid'], 'required'],
+            [['motivo', 'descricao', 'estado', 'datadenuncia', 'userprofileid', 'anuncioid'], 'required'],
+            [['datadenuncia'], 'safe'],
             [['userprofileid', 'anuncioid'], 'integer'],
+            [['motivo', 'estado'], 'string', 'max' => 45],
+            [['descricao'], 'string', 'max' => 100],
             [['anuncioid'], 'exist', 'skipOnError' => true, 'targetClass' => Anuncio::class, 'targetAttribute' => ['anuncioid' => 'id']],
             [['userprofileid'], 'exist', 'skipOnError' => true, 'targetClass' => Userprofile::class, 'targetAttribute' => ['userprofileid' => 'id']],
         ];
@@ -46,6 +53,10 @@ class Stats extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
+            'motivo' => 'Motivo',
+            'descricao' => 'Descricao',
+            'estado' => 'Estado',
+            'datadenuncia' => 'Datadenuncia',
             'userprofileid' => 'Userprofileid',
             'anuncioid' => 'Anuncioid',
         ];

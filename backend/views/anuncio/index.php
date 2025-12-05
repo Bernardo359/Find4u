@@ -1,13 +1,13 @@
 <?php
 
-use backend\models\Anuncio;
+use common\models\Anuncio;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var backend\models\AnuncioSearch $searchModel */
+/** @var common\models\AnuncioSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
 $this->title = 'Anuncios';

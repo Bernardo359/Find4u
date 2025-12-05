@@ -4,7 +4,7 @@ namespace backend\models;
 
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use backend\models\Stats;
+use common\models\Stats;
 
 /**
  * StatsSearch represents the model behind the search form of `backend\models\Stats`.

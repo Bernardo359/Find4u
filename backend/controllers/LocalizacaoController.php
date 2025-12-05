@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Localizacao;
+use common\models\Localizacao;
 use backend\models\LocalizacaoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

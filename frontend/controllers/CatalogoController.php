@@ -2,7 +2,7 @@
 
 namespace frontend\controllers;
 
-use backend\models\Favorito;
+use common\models\Favorito;
 use yii\web\Controller;
 use common\models\Anuncio;
 use common\models\Userprofile;
@@ -67,5 +67,34 @@ class CatalogoController extends Controller
         return $this->render('favoritos', [
             'anuncios' => $anuncios,
         ]);
+    }
+
+    public function actionToggleFavorito($id)
+    {
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect(['site/login']);
+        }
+
+        $userprofile = Userprofile::find()
+            ->where(['user_id' => Yii::$app->user->identity->id])
+            ->one();
+
+        $favorito = Favorito::find()
+            ->where([
+                'userprofileid' => $userprofile->id,
+                'anuncioid' => $id
+            ])
+            ->one();
+
+        if ($favorito) {
+            $favorito->delete(); // se já existe → remove
+        } else {
+            $favorito = new Favorito();
+            $favorito->userprofileid = $userprofile->id;
+            $favorito->anuncioid = $id;
+            $favorito->save(); // se não existe → adiciona
+        }
+
+        return $this->redirect(Yii::$app->request->referrer);
     }
 }

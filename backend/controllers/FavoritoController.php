@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Favorito;
+use common\models\Favorito;
 use backend\models\FavoritoSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

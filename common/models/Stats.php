@@ -1,20 +1,20 @@
 <?php
 
-namespace backend\models;
+namespace common\models;
 
 use Yii;
 
 /**
- * This is the model class for table "foto".
+ * This is the model class for table "stats".
  *
  * @property int $id
- * @property string $nomefoto
- * @property int|null $ordem
+ * @property int $userprofileid
  * @property int $anuncioid
  *
  * @property Anuncio $anuncio
+ * @property Userprofile $userprofile
  */
-class Foto extends \yii\db\ActiveRecord
+class Stats extends \yii\db\ActiveRecord
 {
 
 
@@ -23,7 +23,7 @@ class Foto extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return 'foto';
+        return 'stats';
     }
 
     /**
@@ -32,11 +32,10 @@ class Foto extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['ordem'], 'default', 'value' => null],
-            [['nomefoto', 'anuncioid'], 'required'],
-            [['ordem', 'anuncioid'], 'integer'],
-            [['nomefoto'], 'string', 'max' => 45],
+            [['userprofileid', 'anuncioid'], 'required'],
+            [['userprofileid', 'anuncioid'], 'integer'],
             [['anuncioid'], 'exist', 'skipOnError' => true, 'targetClass' => Anuncio::class, 'targetAttribute' => ['anuncioid' => 'id']],
+            [['userprofileid'], 'exist', 'skipOnError' => true, 'targetClass' => Userprofile::class, 'targetAttribute' => ['userprofileid' => 'id']],
         ];
     }
 
@@ -47,8 +46,7 @@ class Foto extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'nomefoto' => 'Nomefoto',
-            'ordem' => 'Ordem',
+            'userprofileid' => 'Userprofileid',
             'anuncioid' => 'Anuncioid',
         ];
     }
@@ -61,6 +59,16 @@ class Foto extends \yii\db\ActiveRecord
     public function getAnuncio()
     {
         return $this->hasOne(Anuncio::class, ['id' => 'anuncioid']);
+    }
+
+    /**
+     * Gets query for [[Userprofile]].
+     *
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUserprofile()
+    {
+        return $this->hasOne(Userprofile::class, ['id' => 'userprofileid']);
     }
 
 }

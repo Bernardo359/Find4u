@@ -2,7 +2,7 @@
 
 namespace backend\controllers;
 
-use backend\models\Review;
+use common\models\Review;
 use backend\models\ReviewSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -1,6 +1,6 @@
 <?php
 
-use backend\models\Estadoanuncio;
+use common\models\Estadoanuncio;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
