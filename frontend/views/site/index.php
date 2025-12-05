@@ -214,7 +214,7 @@ $this->title = 'My Yii Application';
                         <h4>Detail Info About Villa</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                         <div class="icon-button">
-                          <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                          <a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a>
                         </div>
                       </div>
                     </div>
@@ -239,7 +239,7 @@ $this->title = 'My Yii Application';
                         <h4>Extra Info About Penthouse</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, do eiusmod tempor pack incididunt ut labore et dolore magna aliqua quised ipsum suspendisse. <br><br>Swag fanny pack lyft blog twee. JOMO ethical copper mug, succulents typewriter shaman DIY kitsch twee taiyaki fixie hella venmo after messenger poutine next level humblebrag swag franzen.</p>
                         <div class="icon-button">
-                          <a href="#"><i class="fa fa-calendar"></i> Schedule a visit</a>
+                          <a href="#"><i class="fa fa-calendar"></i> Marcar Visita</a>
                         </div>
                       </div>
                     </div>
@@ -262,116 +262,63 @@ $this->title = 'My Yii Application';
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-01.jpg" alt=""></a>
-              <span class="category">Luxury Villa</span>
-              <h6>$2.264.000</h6>
-              <h4><a href="property-details.html">18 New Street Miami, OR 97219</a></h4>
-              <ul>
-                <li>Bedrooms: <span>8</span></li>
-                <li>Bathrooms: <span>8</span></li>
-                <li>Area: <span>545m2</span></li>
-                <li>Floor: <span>3</span></li>
-                <li>Parking: <span>6 spots</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-02.jpg" alt=""></a>
-              <span class="category">Luxury Villa</span>
-              <h6>$1.180.000</h6>
-              <h4><a href="property-details.html">54 Mid Street Florida, OR 27001</a></h4>
-              <ul>
-                <li>Bedrooms: <span>6</span></li>
-                <li>Bathrooms: <span>5</span></li>
-                <li>Area: <span>450m2</span></li>
-                <li>Floor: <span>3</span></li>
-                <li>Parking: <span>8 spots</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-03.jpg" alt=""></a>
-              <span class="category">Luxury Villa</span>
-              <h6>$1.460.000</h6>
-              <h4><a href="property-details.html">26 Old Street Miami, OR 38540</a></h4>
-              <ul>
-                <li>Bedrooms: <span>5</span></li>
-                <li>Bathrooms: <span>4</span></li>
-                <li>Area: <span>225m2</span></li>
-                <li>Floor: <span>3</span></li>
-                <li>Parking: <span>10 spots</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-04.jpg" alt=""></a>
-              <span class="category">Apartment</span>
-              <h6>$584.500</h6>
-              <h4><a href="property-details.html">12 New Street Miami, OR 12650</a></h4>
-              <ul>
-                <li>Bedrooms: <span>4</span></li>
-                <li>Bathrooms: <span>3</span></li>
-                <li>Area: <span>125m2</span></li>
-                <li>Floor: <span>25th</span></li>
-                <li>Parking: <span>2 cars</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-05.jpg" alt=""></a>
-              <span class="category">Penthouse</span>
-              <h6>$925.600</h6>
-              <h4><a href="property-details.html">34 Beach Street Miami, OR 42680</a></h4>
-              <ul>
-                <li>Bedrooms: <span>4</span></li>
-                <li>Bathrooms: <span>4</span></li>
-                <li>Area: <span>180m2</span></li>
-                <li>Floor: <span>38th</span></li>
-                <li>Parking: <span>2 cars</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="item">
-              <a href="property-details.html"><img src="../template/img/property-06.jpg" alt=""></a>
-              <span class="category">Modern Condo</span>
-              <h6>$450.000</h6>
-              <h4><a href="property-details.html">22 New Street Portland, OR 16540</a></h4>
-              <ul>
-                <li>Bedrooms: <span>3</span></li>
-                <li>Bathrooms: <span>2</span></li>
-                <li>Area: <span>165m2</span></li>
-                <li>Floor: <span>26th</span></li>
-                <li>Parking: <span>3 cars</span></li>
-              </ul>
-              <div class="main-button">
-                <a href="property-details.html">Schedule a visit</a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="properties-grid">
+            <?php foreach ($anuncios as $anuncio): ?>
+                <div class="property-card adv">
+                    <button class="btn-favorito">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <a href="<?= Yii::$app->urlManager->createUrl(['catalogo/detalhes', 'id' => $anuncio->id]) ?>">
+                        
+                        <!-- Imagem -->
+                        <div class="card-image">
+                            <?php
+                            $defaultImg = Yii::getAlias('@web') . '/template/img/property-01.jpg';
+                            $foto = $defaultImg;
+
+                            if (!empty($anuncio->fotos) && isset($anuncio->fotos[0]) && !empty($anuncio->fotos[0]->nomefoto)) {
+                                $f = $anuncio->fotos[0];
+                                $foto = Yii::getAlias('@web') . '/uploads/' . $f->nomefoto;
+                            }
+                            ?>
+                            <img src="<?= $foto ?>" alt="<?= $anuncio->titulo ?>">
+                            
+                            <div class="card-overlay">
+                                <span class="view-btn">Ver Detalhes</span>
+                            </div>
+                        </div>
+
+                        <!-- Badge Categoria -->
+                        <span class="card-badge"><?= $anuncio->categoria->nome ?? 'Categoria' ?></span>
+
+                        <!-- Conteúdo -->
+                        <div class="card-content">
+                            <h3 class="card-title"><?= $anuncio->titulo ?></h3>
+                            
+                            <div class="card-price">
+                                <span><?= number_format($anuncio->preco, 2) ?></span>€
+                            </div>
+
+                            <div class="card-details">
+                                <div class="detail-item">
+                                    <i class="fas fa-home"></i>
+                                    <span><?= $anuncio->tipologia ?></span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-ruler-combined"></i>
+                                    <span><?= $anuncio->area ?> m²</span>
+                                </div>
+                                <div class="detail-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span><?= $anuncio->localizacao->distrito ?? 'N/D' ?></span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </a>
+                </div>
+            <?php endforeach; ?>
+        </div>              
       </div>
     </div>
     <div class="featured section" style="padding: 80px; background-color: #d8d8d83d;">

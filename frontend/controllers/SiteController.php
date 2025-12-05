@@ -15,6 +15,7 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
+use frontend\models\Anuncio;
 
 /**
  * Site controller
@@ -75,7 +76,14 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        return $this->render('index');
+        $anuncios = \common\models\Anuncio::find()
+        ->orderBy(['id' => SORT_DESC])
+        ->limit(6)
+        ->all();
+
+        return $this->render('index', [
+            'anuncios' => $anuncios
+    ]);
     }
 
     /**
