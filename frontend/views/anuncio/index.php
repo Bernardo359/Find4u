@@ -41,6 +41,27 @@ $this->title = 'Anuncios';
             ['class' => 'yii\grid\SerialColumn', 'headerOptions' => ['class' => 'text-muted']],
 
             [
+                'label' => 'Foto',
+                'format' => 'html',
+                'value' => function($model) {
+
+                    // Imagem por defeito
+                    $defaultImg = Yii::getAlias('@web') . '/template/img/property-01.jpg';
+                    $foto = $defaultImg;
+
+                    // Primeira foto real do anúncio
+                    if (!empty($model->fotos) && isset($model->fotos[0]) && !empty($model->fotos[0]->nomefoto)) {
+                        $foto = Yii::getAlias('@web') . '/uploads/' . $model->fotos[0]->nomefoto;
+                    }
+
+                    return Html::img($foto, [
+                        'class' => 'gridview-photo img-thumbnail'
+                    ]);
+                },
+                'contentOptions' => ['style' => 'width:100px;'],
+            ],
+
+            [
                 'attribute' => 'titulo',
                 'headerOptions' => ['class' => 'text-dark'],
                 'contentOptions' => ['style' => 'font-weight: 500;'],
