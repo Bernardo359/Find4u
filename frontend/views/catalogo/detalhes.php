@@ -11,7 +11,18 @@ $this->title = 'Detalhes Imóvel';
       <div class="row">
         <div class="col-lg-8">
           <div class="main-image">
-            <img src="../../web/template/img/single-property.jpg" alt="">
+            <?php
+              $defaultImg = Yii::getAlias('@web') . '/template/img/property-01.jpg';
+              $foto = $defaultImg;
+
+              if (!empty($anuncio->fotos) && isset($anuncio->fotos[0]) && !empty($anuncio->fotos[0]->nomefoto)) {
+                  $f = $anuncio->fotos[0];
+                  $foto = Yii::getAlias('@web') . '/uploads/' . $f->nomefoto;
+              }
+            ?>
+            <div class="main-image">
+                <img src="<?= $foto ?>" alt="<?= $anuncio->titulo ?>">
+            </div>
           </div>
           <div class="main-content">
             <span class="category"><?= $anuncio->categoria->nome ?></span>
